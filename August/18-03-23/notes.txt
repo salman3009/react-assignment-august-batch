@@ -1,0 +1,68 @@
+1.functional component
+2.event handler 
+3.state and props 
+4.how to write custom methods 
+5.using map 
+6.handling date function 
+7.useRef - hooks 
+8.stateless component 
+9.forms handling 
+npx --> will install the latest version of reactjs till today 
+npm --> it will instal the latest version of that day. again if you reuse it will install the previous version which you install that day.
+starting point:
+index.html--->index.js-->app.js 
+Two ways of creating component 
+1.class 
+2.function 
+Before 16.4 we cannot use state in functional component 
+Benefit of using reactjs :
+1.SPA
+2.To develop UI we are creating templates. (state and props)
+3.performance(virutal dom and real dom)
+File extension 
+//you can give either .jsx or js 
+//most prefer is .js 
+===============================
+function App(){
+
+return (<div>
+
+Hello world
+
+</div>)
+
+}
+
+export default App;
+
+const App=()=>{
+
+return(<div>
+
+Hello world
+
+</div>)
+
+}
+
+export default App;
+===================================
+Rules of Reactjs 
+1.whenever you want to use html inside jsx - () 
+2.whenever you want to use javascript  inside jsx-{}
+======================================
+To get the data from forms;
+1.by using useState 
+2.by using useRef 
+hooks:
+1.useState 
+2.useRef 
+3.useReducer 
+4.useCallback 
+5.useEffect 
+6.useMemo 
+7.useContext 
+===========================
+Props 
+from parent to child you can pass props normally by giving attribute 
+from child to parent you can pass methods 
