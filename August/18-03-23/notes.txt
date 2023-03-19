@@ -66,3 +66,4 @@ hooks:
 Props 
 from parent to child you can pass props normally by giving attribute 
 from child to parent you can pass methods 
+=========================

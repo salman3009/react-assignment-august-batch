@@ -1,0 +1,25 @@
+Expression supported inside the jsx to write javascript:
+1.maths calcuations 
+2.&& 
+3.||
+4.==,===,!= 
+5.condition?"yes":"no" 
+6.function call 
+8.you write html code 
+9.map function 
+10.varible binding
+Form handling:
+1.useState 
+2.useRef
+//you access any attribute from form or you can set any attribute to form.
+
+Difference between dependencies and Devdependencies
+//dependencies for production build 
+//Devdependencies for development build 
+
+Arrow function 
+const addition=(a,b)=>{
+    return a+b;
+}
+
+const addition=(a,b)=>a+b;
