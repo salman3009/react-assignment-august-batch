@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react';
 function App() {
 
   const[getList,setList]=useState([]);
+  const[getLoader,setLoader]=useState(true);
+  const[getEven,setEven]=useState(true);
     
   console.log("line 1");
   
@@ -31,6 +33,7 @@ function App() {
       result = result.slice(0,10);
       console.log(result);
       setList(result);
+      setLoader(false);
 
     }catch(err){
       console.log(err);
@@ -41,12 +44,16 @@ function App() {
 
   return (
     <div className="App">
-      {getList.map((obj)=>{
+      {getLoader && <h1>Data is loading</h1>}
+     {!getLoader &&<div> {getList.map((obj)=>{
         return(<div key={obj.id}>
             <h2>{obj.title}</h2>
             <h3>{obj.body}</h3>
         </div>)
       })}
+       Even Number<input type="checkbox" checked={getEven} onChange={()=>setEven(!getEven)}/>
+      </div>
+      }
     </div>
   );
 }
