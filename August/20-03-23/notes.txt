@@ -1,0 +1,63 @@
+QuestionLink:
+https://my.newtonschool.co/playground/project/gmijaql1q0ki
+Assignment:
+1.sync and async 
+2.fetch method 
+3.get/post/put/delete 
+4.get-query params/dynamic parameters 
+5.async await 
+6.how to add loader 
+7.how to filter the real time data. 
+========================================
+1.Inside the javascript Engine all synchronous is excuted first 
+2.Async code is excuted after all synchronous code is completed.
+Async:
+1.useEffect()
+2.setTimeout()
+3.setInterval()
+4.promise()
+5.fetch()
+6.axios()
+7.useState()
+8.useReducer()
+9.useContext()
+3.for any async code we don't have exact timing. whichever is ready it will excuted.
+====================================
+fetching Data from backend:
+RestAPI - Representational state transfer 
+//it will bring html,css,js,json data from backend 
+//it helps to communicate from frontend to backend 
+//it will support any language 
+//it is working on http methods 
+//https 
+get,post,put delete 
+all the browsers is supporting default get method 
+Get method:
+url:
+https://jsonplaceholder.typicode.com/posts
+Get method with dynamic params 
+url:
+https://jsonplaceholder.typicode.com/posts/1
+get method with query params 
+url:
+https://jsonplaceholder.typicode.com/comments?postId=1&id=3
+//we have question mark it means it is optional for backend 
+//we can add multiple attributes in quary params 
+==========================================================
+Inside the React application how to access this rest api data 
+1.fetch method default given by javascript 
+2.axios third party mostly used by developers.
+3.the restapi methods will return async code 
+4.it will return promise 
+To access promise we have two ways 
+1.normal promise 
+2.async await 
+===========================================
+Rules to be followed while handling API call 
+1.please try to use async and await function 
+2.please use exception handling try and catch block.
+3.please update all data inside the state .
+4.please use loader to the user till data comes.
+5.please handler error scenario properly. 
+6.always write helpers function for filter and mapping of data.
+=================================================
