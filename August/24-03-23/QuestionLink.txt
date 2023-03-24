@@ -5,3 +5,28 @@ https://my.newtonschool.co/playground/project/kuqvdnwgl3rt
 3.useState 
 4.slice()
 5.shift()
+=============================
+E-commerce:
+1.styled-component
+2.var,hover 
+==========================
+If you going to install any new package:
+1.create one separate react project 
+2.instal particular package inside the new project 
+3.check for documentation and copy sample code 
+4.if some error then check with stackblitz
+========================================
+1.normal css 
+//we have conflicts if you use the same name.
+2.module.css 
+//it will create modular wise no conflicts will happen here.
+3.styled 
+//it is totally advance third party package.
+//it will create unique class for you 
+//we can write dynamic props inside the class.
+=================================================
+Interview:
+1.useState 
+2.useReducer 
+3.useContext 
+4.Redux 
