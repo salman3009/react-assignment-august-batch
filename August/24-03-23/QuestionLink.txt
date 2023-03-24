@@ -1,0 +1,7 @@
+https://my.newtonschool.co/playground/project/kuqvdnwgl3rt
+=========================================================================
+1.How to create component 
+2.map function 
+3.useState 
+4.slice()
+5.shift()
