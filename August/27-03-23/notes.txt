@@ -1,0 +1,6 @@
+1API:
+    1.get
+    2.post - how to send formdata
+    4.patch 
+    4.delete 
+    5.get with query params 
