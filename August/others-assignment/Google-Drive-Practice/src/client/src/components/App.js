@@ -53,6 +53,49 @@ const App = () => {
       })
   },[currentLocation])
 
+  const onAddFolder=()=>{
+    fetch(`http://localhost:8080/api/folder`, {
+      method: 'POST', 
+      body: JSON.stringify({ location: currentLocation.join('/'), name: "ayshu" }), 
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(e => {
+      if (e.status === 200) {
+        setCurrentStructure([...currentStructure, { name: "salman", isFile: false }])
+      } else alert('Failed to create folder.')
+    })
+  }
+
+  const renameFolder=()=>{
+    fetch(`/api/folder`, {
+      method: 'PATCH', body: JSON.stringify({ location: currentLocation.join('/'), oldName:"ayshu", newName:"tahreen" }), headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((e) => {
+      if (e.status === 200) {
+        let oldStructure = [...currentStructure];
+        oldStructure = oldStructure.filter(e => e.name !== "salman")
+        setCurrentStructure([{ name: "akash", isFile: false }, ...oldStructure])
+      } else
+        alert('Failed to rename folder.')
+    })
+  }
+  const deleteFolder=()=>{
+    fetch(`/api/folder`, {
+      method: 'DELETE', body: JSON.stringify({ location: currentLocation.join('/'), name:'tahreen' }), headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((e) => {
+      if (e.status === 200) {
+        let oldStructure = currentStructure;
+        oldStructure = oldStructure.filter(e => e.name !== 'tahreen')
+        setCurrentStructure(oldStructure)
+      } else
+        alert('Failed to remove folder.')
+
+    })
+  }
   // write your code here
   return (<>
   <div id="location-url">{renderLocation()}</div>
@@ -60,6 +103,9 @@ const App = () => {
      {renderStructure()}
   </div>
   <div id="file-text-content"></div>
+  <button onClick={onAddFolder}>Add Folder</button>
+  <button onClick={renameFolder}>Rename Folder</button>
+  <button onClick={deleteFolder}>Delete Folder</button>
   </>);
 }
 
