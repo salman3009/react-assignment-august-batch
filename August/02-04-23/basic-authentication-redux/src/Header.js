@@ -1,11 +1,12 @@
 
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import {logout} from './reducers/authSlice';
 
 const Header=()=>{
 
   const authentication = useSelector((state)=>state.auth.authentication);
-
+  const dispatch = useDispatch();
 
      return (<nav className="navbar navbar-expand-lg navbar-light bg-light">
      <a className="navbar-brand" href="#">Newton</a>
@@ -24,7 +25,7 @@ const Header=()=>{
        </ul>}
       {authentication && <form className="form-inline my-2 my-lg-0">
        <li className="nav-item">
-           <Link className="nav-link" to="">Logout</Link>
+           <Link className="nav-link" to="" onClick={()=>dispatch(logout())}>Logout</Link>
          </li>
        </form>} 
      </div>

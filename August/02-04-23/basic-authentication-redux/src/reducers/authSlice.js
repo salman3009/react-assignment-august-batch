@@ -12,6 +12,7 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     register: (state,action) => {  
+      debugger;
       state.userName = action.payload.userName;
       state.email = action.payload.email;
       state.password = action.payload.password;
@@ -21,7 +22,7 @@ export const authSlice = createSlice({
     },
     logout: (state) => {
         state.authentication = false;
-        state.username = '';
+        state.userName = '';
         state.email = '';
         state.password = '';
     },
