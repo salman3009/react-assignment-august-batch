@@ -1,0 +1,36 @@
+{
+  "registration": [
+    {
+      "userName": "suresh",
+      "email": "suresh@gmail.com",
+      "password": "12345",
+      "admin":true,
+      "id": 3
+    },
+    {
+      "userName": "rakesh",
+      "email": "rakesh@gmail.com",
+      "password": "12345",
+      "id": 4
+    },
+    {
+      "userName": "sathish",
+      "email": "sathis@gmail.com",
+      "password": "12345",
+      "id": 5
+    },
+    {
+      "userName": "prashant",
+      "email": "prashan@gmail.com",
+      "password": "12345",
+      "id": 6
+    }
+  ],
+  "productList":[
+    {
+      "id":"1",
+      "name":"ac",
+      "price":34000
+    }
+  ]
+}
