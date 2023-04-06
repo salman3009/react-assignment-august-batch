@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
@@ -8,6 +8,7 @@ const Dashboard = () => {
 
     const authentication = useSelector((state) => state.auth.authentication);
     let adminFlag = useSelector((state) => state.auth.admin);
+    const [getAdmin,setAdmin] = useState(adminFlag);
     const list = useSelector((state) => state.product.productList);
     const dispatch = useDispatch();
     const navigation = useNavigate();
@@ -18,16 +19,27 @@ const Dashboard = () => {
             navigation('/');
         }
         else{
-            adminFlag = adminFlag? adminFlag:Boolean(sessionStorage.getItem('adminFlag'));
+            adminFlag = adminFlag? adminFlag:Boolean(sessionStorage.getItem('admin'));
+            setAdmin(adminFlag);
         }
 
     }, [authentication])
 
     useEffect(() => {
+        initialData();
+    }, [])
+
+    const initialData=()=>{
         axios.get('http://localhost:3000/productList').then((result) => {
             dispatch(initialProductList(result.data));
         })
-    }, [])
+    }
+
+   const onDeleteHandler=(id)=>{
+        axios.get(`http://localhost:3000/productList/id`).then((result) => {
+            initialData();
+        }) 
+    }
 
     return (<div className="row">
         <div className="col-2"></div>
@@ -39,7 +51,7 @@ const Dashboard = () => {
                         <th scope="col">Name</th>
                         <th scope="col">Price</th>
                         <th scope="col">CreatedBy</th>
-                        {adminFlag && <th scope="col">Delete</th>}
+                        {getAdmin && <th scope="col">Delete</th>}
                     </tr>
                 </thead>
                 <tbody>
@@ -51,7 +63,7 @@ const Dashboard = () => {
                                     <td>{obj.name}</td>
                                     <td>{obj.price}</td>
                                     <td>{obj.price}</td>
-                                   {adminFlag && <td><button>Delete</button></td>} 
+                                   {getAdmin && <td><button onClick={()=>onDeleteHandler(obj.id)}>Delete</button></td>} 
                                 </tr>
                             )
                         })

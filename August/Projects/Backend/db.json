@@ -4,7 +4,7 @@
       "userName": "suresh",
       "email": "suresh@gmail.com",
       "password": "12345",
-      "admin":true,
+      "admin": true,
       "id": 3
     },
     {
@@ -26,12 +26,18 @@
       "id": 6
     }
   ],
-  "productList":[
+  "productList": [
     {
-      "id":"1",
-      "name":"ac",
-      "price":34000,
-      "createdBy":"suresh@gmail.com"
+      "id": "1",
+      "name": "ac",
+      "price": 34000,
+      "createdBy": "suresh@gmail.com"
+    },
+    {
+      "name": "van",
+      "price": 34200,
+      "createdBy": "suresh@gmail.com",
+      "id": "bGQqsAI"
     }
   ]
 }
