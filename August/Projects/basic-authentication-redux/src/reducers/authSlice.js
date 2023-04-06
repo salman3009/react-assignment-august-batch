@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { act } from 'react-dom/test-utils';
+
 
 const initialState = {
   profile:{},
@@ -16,12 +16,14 @@ export const authSlice = createSlice({
       state.profile = action.payload;
       state.admin = action.payload.admin?true:false;
       state.authentication = true;
+      sessionStorage.setItem('authentication',true);
     },
     logout: (state) => {
         state.authentication = false;
         state.userName = '';
         state.email = '';
         state.password = '';
+        sessionStorage.removeItem('authentication');
     },
   },
 })
