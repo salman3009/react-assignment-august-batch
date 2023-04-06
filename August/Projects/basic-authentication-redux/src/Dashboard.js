@@ -7,6 +7,7 @@ import { initialProductList } from "./reducers/productSlice";
 const Dashboard = () => {
 
     const authentication = useSelector((state) => state.auth.authentication);
+    let adminFlag = useSelector((state) => state.auth.admin);
     const list = useSelector((state) => state.product.productList);
     const dispatch = useDispatch();
     const navigation = useNavigate();
@@ -15,6 +16,9 @@ const Dashboard = () => {
         let result = authentication ? authentication : Boolean(sessionStorage.getItem('authentication'));
         if (!result) {
             navigation('/');
+        }
+        else{
+            adminFlag = adminFlag? adminFlag:Boolean(sessionStorage.getItem('adminFlag'));
         }
 
     }, [authentication])
@@ -35,7 +39,7 @@ const Dashboard = () => {
                         <th scope="col">Name</th>
                         <th scope="col">Price</th>
                         <th scope="col">CreatedBy</th>
-                        <th scope="col">Delete</th>
+                        {adminFlag && <th scope="col">Delete</th>}
                     </tr>
                 </thead>
                 <tbody>
@@ -47,7 +51,7 @@ const Dashboard = () => {
                                     <td>{obj.name}</td>
                                     <td>{obj.price}</td>
                                     <td>{obj.price}</td>
-                                    <td><button>Delete</button></td>
+                                   {adminFlag && <td><button>Delete</button></td>} 
                                 </tr>
                             )
                         })

@@ -17,6 +17,7 @@ export const authSlice = createSlice({
       state.admin = action.payload.admin?true:false;
       state.authentication = true;
       sessionStorage.setItem('authentication',true);
+      sessionStorage.setItem('admin',state.admin);
     },
     logout: (state) => {
         state.authentication = false;
@@ -24,6 +25,7 @@ export const authSlice = createSlice({
         state.email = '';
         state.password = '';
         sessionStorage.removeItem('authentication');
+        sessionStorage.removeItem('admin');
     },
   },
 })
