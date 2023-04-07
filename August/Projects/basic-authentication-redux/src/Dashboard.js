@@ -36,7 +36,7 @@ const Dashboard = () => {
     }
 
    const onDeleteHandler=(id)=>{
-        axios.get(`http://localhost:3000/productList/id`).then((result) => {
+        axios.delete(`http://localhost:3000/productList/${id}`).then((result) => {
             initialData();
         }) 
     }

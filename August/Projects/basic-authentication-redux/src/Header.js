@@ -2,11 +2,16 @@
 import { Link } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
 import {logout} from './reducers/authSlice';
-
+import {useState,useEffect} from 'react';
 const Header=()=>{
 
   const authentication = useSelector((state)=>state.auth.authentication);
+  const [getAuth,setAuth] = useState(authentication);
   const dispatch = useDispatch();
+  useEffect(() => {
+    let result = authentication ? authentication : Boolean(sessionStorage.getItem('authentication'));
+    setAuth(result);
+}, [authentication])
 
      return (<nav className="navbar navbar-expand-lg navbar-light bg-light">
      <a className="navbar-brand" href="#">Newton</a>
@@ -15,7 +20,7 @@ const Header=()=>{
      </button>
    
      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-       {!authentication && <ul className="navbar-nav mr-auto">
+       {!getAuth && <ul className="navbar-nav mr-auto">
          <li className="nav-item active">
            <Link className="nav-link" to="login">Login <span className="sr-only">(current)</span></Link>
          </li>
@@ -23,7 +28,7 @@ const Header=()=>{
            <Link className="nav-link" to="">Register</Link>
          </li>
        </ul>}
-      {authentication && <form className="form-inline my-2 my-lg-0">
+      {getAuth && <form className="form-inline my-2 my-lg-0">
        <li className="nav-item">
            <Link className="nav-link" to="" onClick={()=>dispatch(logout())}>Logout</Link>
          </li>
