@@ -28,16 +28,25 @@
   ],
   "productList": [
     {
-      "id": "1",
-      "name": "ac",
-      "price": 34000,
-      "createdBy": "suresh@gmail.com"
-    },
-    {
       "name": "van",
       "price": 34200,
       "createdBy": "suresh@gmail.com",
       "id": "bGQqsAI"
+    }
+  ],
+  "quoraRegister": [
+    {
+      "userName": "rakesh",
+      "email": "rakesh@gmail.com",
+      "password": "123434",
+      "id": 2
+    }
+  ],
+  "quoraQuestion": [
+    {
+      "question": "what is javascript",
+      "createdBy": "rakesh",
+      "id": 1
     }
   ]
 }
