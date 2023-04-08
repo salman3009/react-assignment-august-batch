@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addAppointment } from '../action';
+import { addAppointment,addNewName } from '../action';
 import '../styles/App.css';
 
 const App = () => {
@@ -8,6 +8,8 @@ const App = () => {
   const [time, setTime] = useState('');
   const [description, setDescription] = useState('');
   const appointments = useSelector((state) => state.appointments);
+  const fullName = useSelector((state)=>state.fullName);
+  alert(fullName);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -32,6 +34,8 @@ const App = () => {
         <br />
         <button type="submit">Add Appointment</button>
       </form>
+      <br/>
+      <input onChange={(event)=>dispatch(addNewName(event.target.value))}/>
       <br />
       <table>
         <thead>

@@ -2,6 +2,7 @@ import { createStore } from 'redux';
 
 const initialState = {
   appointments: [],
+  fullName:"no name"
 };
 
 function appointmentReducer(state = initialState, action) {
@@ -11,6 +12,11 @@ function appointmentReducer(state = initialState, action) {
         ...state,
         appointments: [...state.appointments, action.payload],
       };
+      case 'ADD_Name':
+        return {
+          ...state,
+          fullName:action.payload,
+        };
     default:
       return state;
   }

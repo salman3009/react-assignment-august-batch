@@ -4,4 +4,11 @@ export function addAppointment(appointment) {
         payload: appointment 
     };
 }
+
+export function addNewName(input) {
+    return { 
+        type: 'ADD_Name', 
+        payload: input 
+    };
+}
   
