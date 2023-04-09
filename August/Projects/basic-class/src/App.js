@@ -8,13 +8,23 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state={
-      productName:''
+      flag:false,
+      productName:[]
     }
   }
 
+  productUpdateHandler=(input)=>{
+    this.setState({productName:[...this.state.productName,input]})
+  }
+
+  componentDidUpdate(){
+     console.log(this.state.productName);
+  }
+  
+
   render(){
     return (<div>
-      <Form/>
+      <Form updateProduct={this.productUpdateHandler}/>
       <List/>
     </div>)
   }

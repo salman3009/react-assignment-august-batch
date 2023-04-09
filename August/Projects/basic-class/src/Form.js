@@ -9,11 +9,15 @@ class Form extends Component{
         name:''
        }
     }
+
+    componentDidUpdate(){
+         console.log(this.state.name);
+    }
      
     render(){
         return (<div>
             <input type="text" onChange={(event)=>this.setState({name:event.target.value})}/>
-            <button>Submit</button>
+            <button onClick={()=>this.props.updateProduct(this.state.name)}>Submit</button>
         </div>)
     }
 }
