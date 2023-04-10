@@ -106,7 +106,7 @@ app.post('/api/file', (req, res) => {
     var form = new formidable.IncomingForm();
 
     form.parse(req, function (err, fields, files) {
-        var oldpath = files.file.path;
+        var oldpath = files.file.filepath;
 
         var newpath = join(__dirname, 'drive', fields.location, fields.fileName);
         fs.readFile(join(__dirname, 'drive', fields.location, fields.fileName), (err, data) => {

@@ -48,5 +48,11 @@
       "createdBy": "rakesh",
       "id": 1
     }
+  ],
+  "list": [
+    {
+      "name": "details",
+      "id": 2
+    }
   ]
 }

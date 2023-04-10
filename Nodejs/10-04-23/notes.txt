@@ -1,0 +1,33 @@
+MERN - MongoDB Expressjs Reactjs Nodejs 
+MongoBD-Database
+Expressjs - Framework of Nodejs 
+Reactjs - Javascript library 
+Nodejs - runtime environment for javascript/It is used for serverside language as well.
+chrome browser - v8 engine 
+By using nodejs --> you can compile the javascript outside the browser as well,
+====================================
+For Reactjs,angular,vuejs we are using nodejs to run the complex code outside browser and we 
+are using webpack to convert into minified file.
+===========================================================
+Nodejs is serverside language as well.
+1.we can able to interact with file system.
+2.we can able to interact with database system.
+3.we can able to interact with network system. 
+4.Internally Nodejs is written in c++.
+===================================================
+npm - node package manager / yarn 
+//it is central repository for javascript developers.
+===============================================
+Nodejs is single thread 
+Java is multi thread 
+======================================
+thread - process in exection
+Nodejs is non blocking I/O operation 
+Nodje architecture:
+1.Event loop 
+2.Event Queue 
+3.Internal Thread Pool 
+==================================
+Javascript which is running on inside the browser we have only one thread 
+Javascript which is running on outside the browser we have only one thread + internal thread pool if blocking operation is there.
+

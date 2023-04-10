@@ -7,6 +7,7 @@ const App = () => {
 
   const[currentLocation,setCurrentLocation] = useState([]);
   const[currentStructure,setCurrentStructure] = useState([]);
+  let [selectedFile, setSelectedFile] = useState("")
 
   const renderLocation=()=>{
    let renderList=[];
@@ -69,7 +70,7 @@ const App = () => {
 
   const renameFolder=()=>{
     fetch(`/api/folder`, {
-      method: 'PATCH', body: JSON.stringify({ location: currentLocation.join('/'), oldName:"ayshu", newName:"tahreen" }), headers: {
+      method: 'PATCH', body: JSON.stringify({ location: currentLocation.join('/'), oldName:"index.txt", newName:"tahreen.txt" }), headers: {
         'Content-Type': 'application/json'
       }
     }).then((e) => {
@@ -83,7 +84,7 @@ const App = () => {
   }
   const deleteFolder=()=>{
     fetch(`/api/folder`, {
-      method: 'DELETE', body: JSON.stringify({ location: currentLocation.join('/'), name:'tahreen' }), headers: {
+      method: 'DELETE', body: JSON.stringify({ location: currentLocation.join('/'), name:'tahreen.t' }), headers: {
         'Content-Type': 'application/json'
       }
     }).then((e) => {
@@ -96,6 +97,26 @@ const App = () => {
 
     })
   }
+  const uploadFile=()=>{
+    const formData = new FormData();
+    formData.append(
+      "file",
+      selectedFile,
+      selectedFile.name
+    );
+    formData.append("location", currentLocation.join('/'))
+    formData.append("fileName", selectedFile.name)
+    fetch("http://localhost:8080/api/file", { method: "POST", body: formData }).then(e => {
+      if (e.status === 200) {
+        let oldStructure = currentStructure;
+        setCurrentStructure([...oldStructure, { name: selectedFile.name, isFile: true }])
+        setSelectedFile('')
+      }
+      else {
+        alert('Failed to upload file.')
+      }
+    });
+  }
   // write your code here
   return (<>
   <div id="location-url">{renderLocation()}</div>
@@ -106,6 +127,11 @@ const App = () => {
   <button onClick={onAddFolder}>Add Folder</button>
   <button onClick={renameFolder}>Rename Folder</button>
   <button onClick={deleteFolder}>Delete Folder</button>
+  <br/>
+  <input type="file" name="file"  onChange={(e) => { setSelectedFile(e.target.files[0]) }}/>
+  <br/>
+  <button onClick={uploadFile}>Add Folder</button>
+
   </>);
 }
 
