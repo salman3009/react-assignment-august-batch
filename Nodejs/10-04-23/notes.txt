@@ -30,4 +30,4 @@ Nodje architecture:
 ==================================
 Javascript which is running on inside the browser we have only one thread 
 Javascript which is running on outside the browser we have only one thread + internal thread pool if blocking operation is there.
-
+============================================================
