@@ -17,9 +17,13 @@ const server = http.createServer((req,res)=>{
                 res.writeHead(201,{'Content-Type':'text/plain'});
                 res.end("even number"); 
             }
-            else{
-                res.writeHead(201,{'Content-Type':'text/plain'});
+            else if(result.num1%2!=0){
+                res.writeHead(404,{'Content-Type':'text/plain'});
                 res.end("odd number"); 
+            }
+            else{
+                res.writeHead(400,{'Content-Type':'text/plain'});
+                res.end("error message"); 
             }
          
         })
