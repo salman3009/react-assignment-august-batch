@@ -25,7 +25,7 @@ app.get('',(req,res)=>{
     res.send("<h1>hello world newton</h1>");
 })
 
-app.get('/list',(req,res)=>{
+app.get('/product/list',(req,res)=>{
     res.status(400).json({
         message:"success",
         data:productList
