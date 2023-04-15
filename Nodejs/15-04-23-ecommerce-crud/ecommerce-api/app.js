@@ -8,7 +8,7 @@ const productList=[
         id:1,
         name:"AC",
         price:2000,
-        active:true
+        active:false
     }
 ];
 
@@ -54,6 +54,16 @@ const middelwareToCheckActivate=function(req,res,next){
    
 }
 
+const middlewareForSearch = (req,res,next)=>{
+
+    let list = productList.filter((obj)=>{
+        return obj.active == true;
+    })
+    req.list = list;
+    next();
+
+}
+
 app.get('/list/:id',middelwareToCheckActivate,(req,res)=>{
 //route parameters/dynamic params
     let id = req.params.id;
@@ -74,10 +84,10 @@ app.get('/list/:id',middelwareToCheckActivate,(req,res)=>{
     }
 })
 
-app.get('/search',(req,res)=>{
+app.get('/search',middlewareForSearch,(req,res)=>{
      console.log(req.query.name);
      console.log(req.query.price);
-     let list = productList.filter((obj)=>{
+     let list = req.list.filter((obj)=>{
         console.log(obj.name,typeof req.query.name);
         return (obj.name == req.query.name || obj.price == req.query.price)
      })
