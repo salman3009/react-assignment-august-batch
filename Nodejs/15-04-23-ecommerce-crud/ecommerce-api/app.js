@@ -8,7 +8,7 @@ const productList=[
         id:1,
         name:"AC",
         price:2000,
-        active:false
+        active:true
     }
 ];
 
@@ -48,8 +48,9 @@ const middelwareToCheckActivate=function(req,res,next){
         next();
       }
     }else{
-        console.log("coming next");
-        next();
+        res.status(404).json({
+            message:"Data is not found"
+        })
     }
    
 }
@@ -96,6 +97,17 @@ app.get('/search',middlewareForSearch,(req,res)=>{
         message:"filtered data",
         data:list
     })
+})
+
+app.delete('/:id',middelwareToCheckActivate,(req,res)=>{
+      let index = productList.findIndex((obj)=>{
+           return obj.id == req.params.id;
+      });
+      console.log(index);
+      productList[index].active = false;
+      res.status(200).json({
+        message:"Data is deleted successfully"
+      })
 })
 
 module.exports = app;
