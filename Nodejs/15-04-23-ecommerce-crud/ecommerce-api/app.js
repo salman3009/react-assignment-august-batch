@@ -7,7 +7,8 @@ const productList=[
     {
         id:1,
         name:"AC",
-        price:2000
+        price:2000,
+        active:true
     }
 ];
 
@@ -20,7 +21,9 @@ app.get('',(req,res)=>{
 
 app.post('',(req,res)=>{
     let list = req.body;
+    console.log(req.query);
     list.id=productList.length+1;
+    list.activate = true;
     productList.push(list);
     res.status(201).json({
         message:"Data added successful"
@@ -28,8 +31,31 @@ app.post('',(req,res)=>{
 
 })
 
-app.get('/list/:id',(req,res)=>{
-//route parameters
+const middelwareToCheckActivate=function(req,res,next){
+    console.log("coming to middelware");
+    let filterList = productList.filter((obj)=>{
+        return obj.id == req.params.id;
+    });
+    if(filterList.length>0){
+      let active = filterList[0].active;
+      if(!active){
+        res.status(404).json({
+            message:"Data is no more"
+        })
+      }
+      else{
+        console.log("coming next");
+        next();
+      }
+    }else{
+        console.log("coming next");
+        next();
+    }
+   
+}
+
+app.get('/list/:id',middelwareToCheckActivate,(req,res)=>{
+//route parameters/dynamic params
     let id = req.params.id;
     let list = productList.filter((obj)=>{
         return obj.id == id;
@@ -46,6 +72,20 @@ app.get('/list/:id',(req,res)=>{
             message:"No match is found"
         }) 
     }
+})
+
+app.get('/search',(req,res)=>{
+     console.log(req.query.name);
+     console.log(req.query.price);
+     let list = productList.filter((obj)=>{
+        console.log(obj.name,typeof req.query.name);
+        return (obj.name == req.query.name || obj.price == req.query.price)
+     })
+
+    res.status(200).json({
+        message:"filtered data",
+        data:list
+    })
 })
 
 module.exports = app;
