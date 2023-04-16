@@ -85,4 +85,16 @@ app.get('/search/product',(req,res)=>{
     })
 })
 
+
+
+app.post('',(req,res)=>{
+   let product = req.body;
+   product.id = list.length+1;
+   list.push(product);
+   console.log(list);
+   fs.writeFile(`${__dirname}/data/tour.json`,JSON.stringify(list),()=>{
+      res.status(201).send("<h1>Successfully data is created</h1>")
+   })
+})
+
 module.exports = app;
