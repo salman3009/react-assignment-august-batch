@@ -97,4 +97,26 @@ app.post('',(req,res)=>{
    })
 })
 
+app.patch('/:id',(req,res)=>{
+   let id = Number(req.params.id);
+
+   let singleProduct = list.find((obj)=>{
+      return obj.id === id;
+   })
+
+   let index = list.findIndex((obj)=>{
+    return obj.id === id;
+   })
+
+   let result = Object.assign(singleProduct,req.body);
+   console.log(result);
+
+   list.splice(index,1);
+   list.push(result);
+   
+   fs.writeFile(`${__dirname}/data/tour.json`,JSON.stringify(list),()=>{
+    res.status(201).send("<h1>Data is updated successfully</h1>")
+ })
+})
+
 module.exports = app;
