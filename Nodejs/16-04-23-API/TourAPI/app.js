@@ -22,5 +22,29 @@ app.get('',(req,res)=>{
 
 })
 
+app.get('/:id',(req,res)=>{
+
+    let id = req.params.id;
+    id *=id;
+    console.log(typeof id,id);
+
+    let tourDetails = list.find((obj)=>{
+        return  obj.id == id;
+    })
+
+    if(tourDetails){
+        res.status(200).json({
+            data:tourDetails
+        })
+    }
+    else{
+        res.status(404).json({
+            message:"no id found"
+        })
+    }
+
+   
+})
+
 
 module.exports = app;
