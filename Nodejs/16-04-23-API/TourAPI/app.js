@@ -22,7 +22,7 @@ app.get('',(req,res)=>{
 
 })
 
-app.get('/:id',(req,res)=>{
+app.get('/single/product/:id',(req,res)=>{
 
     let id = req.params.id;
     id *=id;
@@ -42,9 +42,47 @@ app.get('/:id',(req,res)=>{
             message:"no id found"
         })
     }
+})
 
+app.get('/list/product/:travelType/:price',(req,res)=>{
+
+    console.log(req.params.travelType,req.params.price);
+    let result = list.filter((obj)=>{
+        return obj.travelType === req.params.travelType
+    }).filter((obj)=>{
+          return obj.price === Number(req.params.price)
+    })
+
+    if(result.length>0){
+        res.status(200).json({
+            message:"success",
+            data:result
+        })
+    }
+    else{
+        res.status(404).send("<h1>no details</h1");
+    }
    
 })
 
+app.get('/search/product',(req,res)=>{
+    console.log(req.query.travelType);
+    console.log(req.query.price);
+    let result = list;
+    if(req.query.travelType){
+       result = result.filter((obj)=>{
+        return obj.travelType === req.query.travelType
+       })
+    }
+    if(req.query.price){
+        result = result.filter((obj)=>{
+            return obj.price === Number(req.query.price)
+           })
+    }
+    res.status(200).json({
+        message:"success",
+        data:result
+    })
+})
 
 module.exports = app;
