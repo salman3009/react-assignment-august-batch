@@ -4,6 +4,8 @@ app.use(express.json());
 const userRoute = require('./routes/user');
 const productRoute = require('./routes/product');
 
+
+
 app.use('/api/user',userRoute);
 app.use('/api/product',productRoute);
 

@@ -3,6 +3,7 @@ const app = express();
 const parser = require('body-parser');
 
 app.use(parser.json());
+// app.use(express.json());
 
 const productList=[{
     id:1,
@@ -21,7 +22,10 @@ app.use((req,res,next)=>{
     next();
 })
 
+
+
 app.get('',(req,res)=>{
+    console.log(req.salman);
     res.send("<h1>hello world newton</h1>");
 })
 
@@ -34,6 +38,8 @@ app.get('/product/list',(req,res)=>{
 
 app.post('/list',(req,res)=>{
      console.log(req.body);
+     console.log(typeof req.body);
+     console.log(typeof req.body.age);
      res.status(201).json({
         message:"created"
      })

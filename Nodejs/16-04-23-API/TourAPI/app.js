@@ -108,6 +108,10 @@ app.patch('/:id',(req,res)=>{
     return obj.id === id;
    })
 
+   if(index<=0){
+    res.status(404).send("not found");
+}
+
    let result = Object.assign(singleProduct,req.body);
    console.log(result);
 
@@ -118,5 +122,26 @@ app.patch('/:id',(req,res)=>{
     res.status(201).send("<h1>Data is updated successfully</h1>")
  })
 })
+
+
+app.delete('/:id',(req,res)=>{
+
+    let id = Number(req.params.id);
+ 
+    let index = list.findIndex((obj)=>{
+     return obj.id === id;
+    })
+
+    if(index<=0){
+        res.status(404).send("not found");
+    }
+ 
+ 
+    list.splice(index,1);
+    
+    fs.writeFile(`${__dirname}/data/tour.json`,JSON.stringify(list),()=>{
+     res.status(201).send("<h1>Data is deleted successfully</h1>")
+  })
+ })
 
 module.exports = app;

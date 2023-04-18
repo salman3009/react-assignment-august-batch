@@ -5,6 +5,7 @@ const checkAuth = require('../middleware/authcheck');
 
 router.get('',checkAuth,productController.getlist);
 router.post('',productController.newList);
+router.get('/admin',productController.getlist);
 
 
 module.exports = router;
