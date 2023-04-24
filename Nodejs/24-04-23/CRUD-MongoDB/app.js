@@ -7,11 +7,22 @@ const db = connect.db('augustNewton');
 async function insert()
 {
     try{
-        let result = await db.collection('employee').insertOne({firstName:"akhil",age:44,salary:10000,status:true});
+        let result = await db.collection('employee').insertOne({status:true});
         console.log(result);
     }catch(err){
       console.log(err);
     }
 
 }
-insert();
+// insert();
+
+async function find(){
+    try{
+        let result = await db.collection('employee').find().toArray();
+        console.log(result);
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+find();
