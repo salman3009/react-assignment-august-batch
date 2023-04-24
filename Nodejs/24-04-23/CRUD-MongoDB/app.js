@@ -40,4 +40,19 @@ async function query(){
         console.log(err);
     }
 }
-query();
+// query();
+
+async function update(){
+    try{
+        let filter = {firstName:"akash"};
+        let update ={$set:{age:25}};
+        let result = await db.collection('employee').updateOne(filter,update);
+        console.log(result);
+    }
+    catch(err){
+        console.log(err);
+    }  
+}
+update();
+
+
