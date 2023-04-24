@@ -1,0 +1,14 @@
+{
+  "name": "crud-mongodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+   "start":"nodmon app"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^5.3.0"
+  }
+}
