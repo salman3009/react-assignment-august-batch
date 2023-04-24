@@ -1,6 +1,7 @@
 
 const mongoClient = require('mongodb').MongoClient;
-const uri = "mongodb://localhost:27017/"
+// const uri = "mongodb://localhost:27017/"
+const uri = "mongodb+srv://newton:nXN3TJ0SrJpmSChq@milesweb.xqz5h.mongodb.net/augustNewton";
 const connect = new mongoClient(uri);
 const db = connect.db('augustNewton');
 const objectId = require('mongodb').ObjectId;
@@ -15,7 +16,7 @@ async function insert()
     }
 
 }
-// insert();
+insert();
 
 async function find(){
     try{
@@ -53,6 +54,18 @@ async function update(){
         console.log(err);
     }  
 }
-update();
+// update();
 
+async function deleteQuery(){
+    try{
+        let filter ={_id: new objectId('6446a4804f20759a64d3a2be')};
+        let result = await db.collection('employee').deleteOne(filter);
+        console.log(result);
+    }
+    catch(err){
+        console.log(err)
+    }
+}
+
+// deleteQuery();
 
