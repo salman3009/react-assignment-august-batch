@@ -51,7 +51,8 @@ const createOperation=async ()=>{
 const findOperation = async ()=>{
      try{
         // let result = await Employee.find();
-        let result = await Employee.find({status:true,firstName:'amol'});
+        // let result = await Employee.find({status:true,firstName:'amol'});
+        let result = await Employee.find({_id:'6447f1d556a507e46af47bc7'});
         //return response always will be an array.
         console.log(result);
      }
@@ -60,4 +61,25 @@ const findOperation = async ()=>{
      }
 }
 
-findOperation();
+//findOperation();
+
+const updateOperation= async ()=>{
+   try{
+     let filter={_id:'6447f1d556a507e46af47bc7'};
+     let update={salary:40000};
+     //it will return return any document
+    // let result = await Employee.updateOne(filter,update);
+
+    //it is returning the document but old one
+    //let result = await Employee.findOneAndUpdate(filter,update);
+
+     //it is returning the document but new one
+     let result = await Employee.findOneAndUpdate(filter,update,{new:true});
+     console.log(result);
+
+   }
+   catch(err){
+    console.log(err);
+   }
+}
+updateOperation();
