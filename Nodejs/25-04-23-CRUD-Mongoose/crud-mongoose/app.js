@@ -30,11 +30,11 @@ const createOperation=async ()=>{
     try{
 
         const employeePost = new Employee({
-            firstName:"suresh",
-            age:22,
-            status:true,
-            hobbies:['music','learning'],
-            salary:3000
+            firstName:"ramy",
+            age:45,
+            status:false,
+            hobbies:['racing','cricket'],
+            salary:45000,
         })  
         const result = await employeePost.save();
         console.log(result);
