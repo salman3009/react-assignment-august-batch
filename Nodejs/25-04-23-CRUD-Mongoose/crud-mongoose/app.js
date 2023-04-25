@@ -45,7 +45,7 @@ const createOperation=async ()=>{
 
 }
 
-createOperation();
+//createOperation();
 
 
 const findOperation = async ()=>{
@@ -95,3 +95,29 @@ const deleteOperation = async()=>{
 
 }
 //deleteOperation();
+
+const countOperation = async()=>{
+    try{
+      let result = await Employee.find().count();
+      console.log(result);
+    }catch(err){
+        console.log(err);
+    }
+
+}
+//countOperation();
+
+
+const pagination = async ()=>{
+   try{
+    let current_page = 1;
+    let total_per_page = 3;
+    let skip_scenario = (current_page * total_per_page);
+    let result = await Employee.find().skip(skip_scenario).limit(total_per_page);
+    console.log(result);
+   }catch(err){
+    console.log(err);
+   }
+}
+
+pagination();
