@@ -6,7 +6,8 @@ const employeeSchema = mongoose.Schema({
         age:{type:Number,required:true},
         status:{type:Boolean},
         hobbies:{type:[String],required:true},
-        salary:{type:Number,required:true}
+        salary:{type:Number,required:true},
+        active:{type:Boolean,default:true}
 })
 //It should match proper data type 
 //Everything is optional above because we have not added validation properties

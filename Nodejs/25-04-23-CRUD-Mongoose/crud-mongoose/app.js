@@ -30,7 +30,7 @@ const createOperation=async ()=>{
     try{
 
         const employeePost = new Employee({
-            firstName:"ramy",
+            firstName:"amol",
             age:45,
             status:false,
             hobbies:['racing','cricket'],
@@ -45,7 +45,7 @@ const createOperation=async ()=>{
 
 }
 
-// createOperation();
+createOperation();
 
 
 const findOperation = async ()=>{
@@ -82,4 +82,16 @@ const updateOperation= async ()=>{
     console.log(err);
    }
 }
-updateOperation();
+//updateOperation();
+
+const deleteOperation = async()=>{
+  try{
+    let filter={_id:'6447f1d556a507e46af47bc7'};
+    let result = await Employee.deleteOne(filter);
+    console.log(result);
+  }catch(err){
+    console.log(err);
+  }
+
+}
+//deleteOperation();
