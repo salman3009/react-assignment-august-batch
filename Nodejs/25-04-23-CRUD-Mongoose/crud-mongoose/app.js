@@ -45,4 +45,19 @@ const createOperation=async ()=>{
 
 }
 
-createOperation();
+// createOperation();
+
+
+const findOperation = async ()=>{
+     try{
+        // let result = await Employee.find();
+        let result = await Employee.find({status:true,firstName:'amol'});
+        //return response always will be an array.
+        console.log(result);
+     }
+     catch(err){
+        console.log(err);
+     }
+}
+
+findOperation();
