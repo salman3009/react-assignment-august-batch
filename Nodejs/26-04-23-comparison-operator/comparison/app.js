@@ -34,8 +34,9 @@ const findOperation = async ()=>{
         // let result = await Employee.find({firstName:{$eq:"suresh"}});
         // let result = await Employee.find({firstName:{$ne:"suresh"}});
         // let result = await Employee.find({age:{$gte:45}});
-        let result = await Employee.find({age:{$lte:45}});
-        //return response always will be an array.
+        // let result = await Employee.find({age:{$lte:45}});
+        // let result = await Employee.find({hobbies:{$in:['cricket']}});
+        let result = await Employee.find({hobbies:{$nin:['cricket']}});
         console.log(result);
      }
      catch(err){
