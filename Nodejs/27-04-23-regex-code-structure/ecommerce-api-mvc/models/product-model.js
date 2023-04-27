@@ -1,10 +1,11 @@
-const fs  = require('fs');
+const mongoose = require('mongoose');
 
-module.exports ={
+//Declaring properties and datatypes
+const productSchema = mongoose.Schema({
+        name : {type:String,required:true},
+        price:{type:Number,required:true},
+        date:{type:Date,default:Date.now},
+        quantity:{type:Number,required:true}
+})
 
-    getListModel:()=>{
-        console.log("model 5");
-        let result = fs.readFileSync(`${__dirname}/data/product.json`);
-        return JSON.parse(result);
-    }
-}
+module.exports = mongoose.model('product',productSchema);

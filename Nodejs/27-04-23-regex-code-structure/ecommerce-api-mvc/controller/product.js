@@ -1,11 +1,14 @@
-const productModel = require('../models/product-model');
+const Product = require('../models/product-model');
 
 module.exports={
 
-    getListController:(req,res)=>{
-      console.log("inside the product controller 4",req.token);
-      let result = productModel.getListModel();
-      res.status(200).json({list:result});
+    getListController: async(req,res)=>{
+      try{
+        let result = await Product.find();
+        res.status(200).json({list:result});
+      }catch(err){
+        res.status(500).json({error:err});
+      }  
     }
 
 }
