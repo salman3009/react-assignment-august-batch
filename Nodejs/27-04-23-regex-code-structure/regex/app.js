@@ -23,7 +23,12 @@ mongoose.connect(uri,{
 const findOperation = async ()=>{
      try{
         //projection
-        let result = await Employee.find({},{firstName:1,age:1,_id:0});
+        // let result = await Employee.find({},{firstName:1,age:1,_id:0});
+        //regex
+        //exact keyword match
+        // let result = await Employee.find({firstName:{$regex:'amol'}});
+        // i - case insensitive
+        let result = await Employee.find({firstName:{$regex:'amol',$options:"i"}});
         console.log(result);
      }
      catch(err){
