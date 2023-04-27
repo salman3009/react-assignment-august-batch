@@ -9,6 +9,20 @@ module.exports={
       }catch(err){
         res.status(500).json({error:err});
       }  
+    },
+
+    postListController: async (req,res)=>{
+      try{
+         const productCreation = new Product({
+          name : req.body.name,
+          price:Number(req.body.price),
+          quantity:Number(req.body.quantity)
+         });
+         let result = await productCreation.save();
+        res.status(201).json({list:result});
+      }catch(err){
+        res.status(500).json({error:err});
+      }
     }
 
 }
