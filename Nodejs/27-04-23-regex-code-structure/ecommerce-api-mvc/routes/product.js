@@ -10,6 +10,7 @@ router.use((req,res,next)=>{
 })
 
 router.get('',authMiddleware,productController.getListController);
+router.post('',productController.postListController);
 
 
 module.exports = router;
