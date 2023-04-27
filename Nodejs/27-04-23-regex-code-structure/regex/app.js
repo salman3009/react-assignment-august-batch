@@ -17,6 +17,11 @@ mongoose.connect(uri,{
     console.log(err);
 })
 
+//regex pattern
+   //1.i - case insensitive
+   //2.^ - start symbol 
+   //3.$ - end symbol 
+   //regex value must be in string
 
 
 
@@ -28,7 +33,21 @@ const findOperation = async ()=>{
         //exact keyword match
         // let result = await Employee.find({firstName:{$regex:'amol'}});
         // i - case insensitive
-        let result = await Employee.find({firstName:{$regex:'amol',$options:"i"}});
+        // let result = await Employee.find({firstName:{$regex:'amol',$options:"i"}});
+        // let result = await Employee.find({firstName:{$regex:/amol/i}});
+        
+        //exact keyword match with case insensitive
+        // let result = await Employee.find({firstName:{$regex:/^amol$/i}});
+
+        //anything that start with am
+        // let result = await Employee.find({firstName:{$regex:/^am/i}});
+
+
+        //anything that ends with th
+        let result = await Employee.find({hobbies:{$in:[/^cri/i]}});
+
+
+
         console.log(result);
      }
      catch(err){
