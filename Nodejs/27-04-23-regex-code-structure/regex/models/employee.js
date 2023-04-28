@@ -5,7 +5,10 @@ const employeeSchema = mongoose.Schema({
         firstName : {type:String,required:true},
         age:{type:Number,required:true},
         status:{type:Boolean},
-        hobbies:{type:[String],required:true},
+        hobbies:{type:[{
+                name:String,
+                percentage:Number
+        }],required:true},
         salary:{type:Number,required:true},
         active:{type:Boolean,default:true}
 })

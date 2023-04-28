@@ -3,7 +3,7 @@ const Employee = require('./models/employee');
 
 
 
-const uri = "mongodb://localhost:27017/augustslack";
+const uri = "mongodb://localhost:27017/augustslackregex";
 //const uri = "mongodb+srv://newton:nXN3TJ0SrJpmSChq@milesweb.xqz5h.mongodb.net/augustNewton";
 
 
@@ -45,10 +45,12 @@ const findOperation = async ()=>{
 
 
         //anything that ends with th
-        let result = await Employee.find({hobbies:{$in:[/^cri/i]}});
+        // let search = 'cricket';
+        // let regex = new RegExp(`^${search}$`, "i");
+        // let result = await Employee.find({hobbies:{$in:[regex]}});
 
 
-
+        let result = await Employee.find({hobbies: {$elemMatch: {name:'cricket'}}})
         console.log(result);
      }
      catch(err){
@@ -58,3 +60,27 @@ const findOperation = async ()=>{
 
 findOperation();
 
+
+const createOperation=async ()=>{
+    try{
+
+        const employeePost = new Employee({
+            firstName:"amol",
+            age:20,
+            status:false,
+            hobbies:[{
+                name:"throwball",
+                percentage:40
+            }],
+            salary:45000,
+        })  
+        const result = await employeePost.save();
+        console.log(result);
+    }
+    catch(err){
+      console.log(err);
+    }
+
+}
+
+// createOperation();

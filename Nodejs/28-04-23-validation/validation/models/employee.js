@@ -33,7 +33,10 @@ const employeeSchema = mongoose.Schema({
                     message:"you must have atleast one data"    
                 }
         },
-        salary:{type:Number,required:[true,'salary should be given']},
+        salary:{
+                type:Number,
+                required:[true,'salary should be given']
+        },
         active:{type:Boolean,default:true},
         date:{type:Date,default:Date.now}
 })

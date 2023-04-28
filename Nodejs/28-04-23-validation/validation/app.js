@@ -8,12 +8,12 @@ const uri = "mongodb://localhost:27017/augustslack";
 
 
 //validation properties:
-//1.required 
-//2.minlength
-//3.maxlength
-//4.min 
-//5.max
-//6.enum
+//1.required  -> empty validation
+//2.minlength  ->string type
+//3.maxlength  ->string type
+//4.min  -> number type
+//5.max  -> number type
+//6.enum  ->array type
 //custom validator
 //async validator
 
@@ -30,7 +30,7 @@ const createOperation=async ()=>{
     try{
 
         const employeePost = new Employee({
-            firstName:"amol&&",
+            firstName:"amol",
             age:20,
             status:false,
             hobbies:['cricket'],

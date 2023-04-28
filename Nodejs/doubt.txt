@@ -1,0 +1,4 @@
+Doubt Clarification:
+1.dynamic regex 
+2.array of nested documents regex search
+3.search college assignment
