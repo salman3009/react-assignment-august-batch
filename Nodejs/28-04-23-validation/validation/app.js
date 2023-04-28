@@ -9,7 +9,13 @@ const uri = "mongodb://localhost:27017/augustslack";
 
 //validation properties:
 //1.required 
-//
+//2.minlength
+//3.maxlength
+//4.min 
+//5.max
+//6.enum
+//custom validator
+//async validator
 
 mongoose.connect(uri,{
     useNewUrlParser:true,
@@ -23,17 +29,17 @@ mongoose.connect(uri,{
 const createOperation=async ()=>{
     try{
 
-        // const employeePost = new Employee({
-        //     firstName:"amol",
-        //     age:45,
-        //     status:false,
-        //     hobbies:['racing','cricket'],
-        //     salary:45000,
-        // })  
-
         const employeePost = new Employee({
-          status:false
-      })  
+            firstName:"amol",
+            age:10,
+            status:false,
+            hobbies:['racing','cricket'],
+            salary:45000,
+        })  
+
+      //   const employeePost = new Employee({
+      //     status:false
+      // })  
       
         const result = await employeePost.save();
         console.log(result);
