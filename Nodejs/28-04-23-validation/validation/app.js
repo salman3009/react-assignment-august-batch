@@ -30,10 +30,10 @@ const createOperation=async ()=>{
     try{
 
         const employeePost = new Employee({
-            firstName:"amol",
-            age:10,
+            firstName:"amol&&",
+            age:20,
             status:false,
-            hobbies:['racing','cricket'],
+            hobbies:['cricket'],
             salary:45000,
         })  
 

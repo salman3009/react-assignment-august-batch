@@ -2,7 +2,19 @@ const mongoose = require('mongoose');
 
 //Declaring properties and datatypes
 const employeeSchema = mongoose.Schema({
-        firstName : {type:String,required:[true,'firstName should not be empty']},
+        firstName : {
+                type:String,
+                required:[true,'firstName should not be empty'],
+                minlength:[4,'minimum should be 4'],
+                maxlength:[50,'maximum length is allowed 50'],
+                validate:{
+                        validator:function(input){
+                                let pattern = /^[a-zA-Z0-9]+$/;
+                                return pattern.test(input);
+                        },
+                        message:"no pattern validation matched"
+                }
+        },
         age:{
         type:Number,
         required:[true,'age should be in number'],
@@ -10,7 +22,17 @@ const employeeSchema = mongoose.Schema({
         max:[60,'age must be below 60']
         },
         status:{type:Boolean},
-        hobbies:{type:[String]},
+        hobbies:{
+                type:[String],
+                enum:['music','cricket'],
+                validate:{
+                    validator:function(input){
+                         console.log(input);
+                         return input.length >0;
+                    },
+                    message:"you must have atleast one data"    
+                }
+        },
         salary:{type:Number,required:[true,'salary should be given']},
         active:{type:Boolean,default:true},
         date:{type:Date,default:Date.now}
