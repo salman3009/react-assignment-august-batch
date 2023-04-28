@@ -11,6 +11,8 @@ router.use((req,res,next)=>{
 
 router.get('',authMiddleware,productController.getListController);
 router.post('',productController.postListController);
+router.patch('',productController.updateListController);
+router.delete('/:id',productController.deleteListController);
 
 
 module.exports = router;

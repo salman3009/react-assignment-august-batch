@@ -35,6 +35,38 @@ module.exports={
       }catch(err){
         res.status(500).json({error:err});
       }
+    },
+
+    updateListController: async (req,res)=>{
+      try{
+         let filter = {};
+         if(req.query.name){
+           filter.name = req.query.name;
+         }
+         if(req.query.price){
+          filter.price = req.query.price;
+        }
+        if(req.query.quantity){
+          filter.quantity = req.query.quantity;
+        }
+         let result = await Product.findOneAndUpdate(filter,req.body,{new:true});
+        res.status(200).json({list:result});
+      }catch(err){
+        res.status(500).json({error:err});
+      }
+    },
+
+
+    deleteListController: async (req,res)=>{
+      try{
+         let result = await Product.findByIdAndDelete(req.params.id);
+        res.status(200).json({list:result});
+      }catch(err){
+        res.status(500).json({error:err});
+      }
     }
+
+
+ 
 
 }

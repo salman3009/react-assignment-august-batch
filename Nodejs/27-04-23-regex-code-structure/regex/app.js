@@ -33,7 +33,8 @@ const findOperation = async ()=>{
         //exact keyword match
         // let result = await Employee.find({firstName:{$regex:'amol'}});
         // i - case insensitive
-        // let result = await Employee.find({firstName:{$regex:'amol',$options:"i"}});
+        //let resultDetails = '^amol$';
+        // let result = await Employee.find({firstName:{$regex:resultDetails,$options:"i"}});
         // let result = await Employee.find({firstName:{$regex:/amol/i}});
         
         //exact keyword match with case insensitive
