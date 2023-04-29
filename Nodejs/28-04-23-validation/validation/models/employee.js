@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 //Declaring properties and datatypes
 const employeeSchema = mongoose.Schema({
         firstName : {
@@ -35,7 +34,18 @@ const employeeSchema = mongoose.Schema({
         },
         salary:{
                 type:Number,
-                required:[true,'salary should be given']
+                required:[true,'salary should be given'],
+                validate:{
+                        validator:function(v){
+                                return new Promise((resolve) => {
+                                        setTimeout(async () => {
+                                          //true/false
+                                           resolve(true)
+                                        }, 4000);
+                                      });
+                        },
+                        message: 'A course should have at least one tags',
+                }
         },
         active:{type:Boolean,default:true},
         date:{type:Date,default:Date.now}

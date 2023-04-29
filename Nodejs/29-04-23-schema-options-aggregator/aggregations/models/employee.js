@@ -10,7 +10,8 @@ const employeeSchema = mongoose.Schema({
         status:{type:Boolean},
         hobbies:{type:[String],required:true},
         salary:{type:Number,required:true},
-        active:{type:Boolean,default:true}
+        active:{type:Boolean,default:true},
+        date:{type:Date,default:Date.now}
 })
 //It should match proper data type 
 //Everything is optional above because we have not added validation properties

@@ -35,7 +35,9 @@ const findOperation = async ()=>{
         // i - case insensitive
         //let resultDetails = '^amol$';
         // let result = await Employee.find({firstName:{$regex:resultDetails,$options:"i"}});
-        // let result = await Employee.find({firstName:{$regex:/amol/i}});
+        //  let result = await Employee.find({firstName:{$regex:/amol/i}});
+
+        //let result = await Employee.find({firstName:{$regex:eval('/.*' + 'amol' + '.*/i')}});
         
         //exact keyword match with case insensitive
         // let result = await Employee.find({firstName:{$regex:/^amol$/i}});
@@ -50,8 +52,8 @@ const findOperation = async ()=>{
         // let result = await Employee.find({hobbies:{$in:[regex]}});
 
 
-        let result = await Employee.find({hobbies: {$elemMatch: {name:'cricket'}}})
-        console.log(result);
+        // let result = await Employee.find({hobbies: {$elemMatch: {name:'cricket'}}})
+         console.log(result);
      }
      catch(err){
         console.log(err);
