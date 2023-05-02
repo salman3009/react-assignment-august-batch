@@ -1,0 +1,6 @@
+notes:
+Database Modelling:
+1.one-one-relationship 
+2.one-many-relationship
+3.one-many-document-Reference
+4.reference-population 
