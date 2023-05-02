@@ -4,3 +4,5 @@ Database Modelling:
 2.one-many-relationship
 3.one-many-document-Reference
 4.reference-population 
+    //Population is the process of replacing the specified path in the doucment of one collection with 
+    the actual document from the other collection 

@@ -58,3 +58,15 @@ const insertOperation = async ()=>{
 // insertOperation();
 
 
+findStudentAddress= async()=>{
+  try{
+    const result = await Student.find({studentId:"12MDD034"},{permanentAddress:1,_id:0})
+    console.log(result);
+  }catch(err){
+    console.log(err);
+  }
+
+}
+findStudentAddress();
+
+

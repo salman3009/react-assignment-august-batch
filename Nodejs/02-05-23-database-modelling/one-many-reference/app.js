@@ -58,16 +58,18 @@ const createOperationAddress= async ()=>{
 //createOperationAddress();
 
 
-updateStudentAddress= async()=>{
-  try{
-    const result = await Student.updateOne({studentId:"12MDD034"},{$push:{addressIds:"64512b31373f486457d13144"}})
-    console.log(result);
-  }catch(err){
-    console.log(err);
-  }
+// updateStudentAddress= async()=>{
+//   try{
+//     const result = await Student.updateOne({studentId:"12MDD034"},{$push:{addressIds:"64512b31373f486457d13144"}})
+//     console.log(result);
+//   }catch(err){
+//     console.log(err);
+//   }
 
-}
-updateStudentAddress();
+// }
+// updateStudentAddress();
+
+
 
 
 
