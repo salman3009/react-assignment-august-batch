@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const User = require('./models/user');
+const Post = require('./models/post');
 app.use(bodyParser.json());
 const bcrypt = require('bcryptjs');
 
@@ -94,6 +95,75 @@ app.post('/api/login',async(req,res)=>{
             })
         }
      }
+})
+
+const postMiddleware = async (req,res,next)=>{
+      console.log("inside the post middleware");
+      next();
+}
+
+app.post('/api/post', async (req,res,next)=>{
+     
+    try{
+        const postDetails = new Post({
+            comment:req.body.comment,
+            postedBy:"akash@gmail.com"
+        })
+
+        await postDetails.save();
+
+        res.status(201).json({
+         message:"post is created successfully"
+        })
+
+    }catch(err){
+        if(err.errors){
+            let result=[];
+            for(field in err.errors){
+              result.push({propertyName:field,message:err.errors[field].message})
+            }
+            res.status(400).json({
+                message:"validation error occured",
+                list:result
+            })
+        }
+        else{
+            res.status(400).json({
+                message:"invalid error"
+            })
+        }
+     }
+   
+})
+
+
+app.get('/api/post', async (req,res,next)=>{
+     
+    try{
+       let result =  await Post.find({},{_id:0,comment:1,postedBy:1});
+        res.status(201).json({
+         message:"Data fetched successfully",
+         list:result
+        })
+
+    }catch(err){
+        if(err.errors){
+            let result=[];
+            for(field in err.errors){
+              result.push({propertyName:field,message:err.errors[field].message})
+            }
+            res.status(400).json({
+                message:"validation error occured",
+                list:result
+            })
+        }
+        else{
+            res.status(400).json({
+                message:"invalid error"
+            })
+        }
+     }
+   
 })
 
 app.listen(3000,()=>{
