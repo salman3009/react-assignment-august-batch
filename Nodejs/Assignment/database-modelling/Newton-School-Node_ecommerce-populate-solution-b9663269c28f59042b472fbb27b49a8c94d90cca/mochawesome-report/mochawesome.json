@@ -1,0 +1,273 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-03-07T10:03:44.061Z",
+    "end": "2023-03-07T10:04:23.056Z",
+    "duration": 38995,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a7c7f17b-322d-4dd6-b9ce-5d4cc453cfa2",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "535d5ff5-b61a-4f77-8434-1b8d7c590f12",
+          "title": "Checking Product Reference in User",
+          "fullFile": "/media/aditya/Personal Files/Newton/population/population-1/population-ecommerce/__tests__/test.js",
+          "file": "/__tests__/test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Checking Product Reference in User\"",
+              "fullTitle": "Checking Product Reference in User \"before all\" hook in \"Checking Product Reference in User\"",
+              "timedOut": false,
+              "duration": 36567,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await mongoose.connect(process.env.DATABASE_URL || \"mongodb://localhost:27017/ecommerce\", { useNewUrlParser: true, useUnifiedTopology: true });\nconsole.log('connected to DB');\nawait seedWithDummyData();\nuser = await User.create({\n    username: 'testuser',\n    email: 'testuser@example.com',\n    password: 'testpassword',\n});\nproduct = await Product.create({\n    name: 'Shoes',\n    description: 'Comfortable shoes for everyday use',\n    price: 49.99,\n    category: 'Footwear'\n}\n);",
+              "err": {},
+              "uuid": "f29a53c6-ddd4-472f-803b-06dbf015ec90",
+              "parentUUID": "535d5ff5-b61a-4f77-8434-1b8d7c590f12",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Checking Product Reference in User\"",
+              "fullTitle": "Checking Product Reference in User \"after all\" hook in \"Checking Product Reference in User\"",
+              "timedOut": false,
+              "duration": 8,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await mongoose.disconnect();\nconsole.log('disconnected DB')",
+              "err": {},
+              "uuid": "f8d50bcc-1a6e-4dbc-8be3-a5115c947db9",
+              "parentUUID": "535d5ff5-b61a-4f77-8434-1b8d7c590f12",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "a0651c35-d961-4e42-826e-6a5a172659c6",
+              "title": "GET /api/v1/users/",
+              "fullFile": "/media/aditya/Personal Files/Newton/population/population-1/population-ecommerce/__tests__/test.js",
+              "file": "/__tests__/test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "users should have a productsPurchased array",
+                  "fullTitle": "Checking Product Reference in User GET /api/v1/users/ users should have a productsPurchased array",
+                  "timedOut": false,
+                  "duration": 735,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .get('/api/v1/users')\n    .send({\n    })\n    .end((err, res) => {\n        expect(err).to.be.null;\n        expect(res.body).to.be.a('object');\n        expect(res.body).to.have.property('status').eql('success');\n        expect(res.body.data.users[0]).to.have.property('productsPurchased').to.be.a('array');\n        user = res.body.data.users[0];\n        done();\n    });",
+                  "err": {},
+                  "uuid": "9b19ce86-76c7-4aa9-8f2b-908fff041780",
+                  "parentUUID": "a0651c35-d961-4e42-826e-6a5a172659c6",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "9b19ce86-76c7-4aa9-8f2b-908fff041780"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 735,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 60000
+            },
+            {
+              "uuid": "3d847fcc-ffbd-4349-87dc-22c8343ee7cd",
+              "title": "PATCH /api/v1/users/add-product",
+              "fullFile": "/media/aditya/Personal Files/Newton/population/population-1/population-ecommerce/__tests__/test.js",
+              "file": "/__tests__/test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should add a product to a user's productsPurchased array",
+                  "fullTitle": "Checking Product Reference in User PATCH /api/v1/users/add-product should add a product to a user's productsPurchased array",
+                  "timedOut": false,
+                  "duration": 1008,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const res = await chai\n    .request(app)\n    .patch('/api/v1/users/add-product')\n    .send({ userId: user._id, productId: product._id });\nexpect(res).to.have.status(200);\nexpect(res.body.data.user.productsPurchased).to.be.an('array');\nexpect(res.body.data.user.productsPurchased).to.include(product._id.toString());\nconst updatedUser = await User.findById(user._id);\nexpect(updatedUser.productsPurchased).to.include(product._id);",
+                  "err": {},
+                  "uuid": "7736b514-2695-4569-9fa3-fb970ddd621a",
+                  "parentUUID": "3d847fcc-ffbd-4349-87dc-22c8343ee7cd",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should return a 404 error if user is not found",
+                  "fullTitle": "Checking Product Reference in User PATCH /api/v1/users/add-product should return a 404 error if user is not found",
+                  "timedOut": false,
+                  "duration": 5,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const res = await chai\n    .request(app)\n    .post('/api/v1/users/add-product')\n    .send({ userId: 'invalid_id', productId: product._id });\nexpect(res).to.have.status(404);",
+                  "err": {},
+                  "uuid": "761f296f-5d2e-45b7-a87f-0237e372b125",
+                  "parentUUID": "3d847fcc-ffbd-4349-87dc-22c8343ee7cd",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "7736b514-2695-4569-9fa3-fb970ddd621a",
+                "761f296f-5d2e-45b7-a87f-0237e372b125"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1013,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 60000
+            },
+            {
+              "uuid": "be1d8d71-4024-4127-9b1c-d22cb7e7c796",
+              "title": "GET /api/v1/users/products-purchased",
+              "fullFile": "/media/aditya/Personal Files/Newton/population/population-1/population-ecommerce/__tests__/test.js",
+              "file": "/__tests__/test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should populate productsPurchaed array and return an array of objects",
+                  "fullTitle": "Checking Product Reference in User GET /api/v1/users/products-purchased should populate productsPurchaed array and return an array of objects",
+                  "timedOut": false,
+                  "duration": 649,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const res = await chai\n    .request(app)\n    .get('/api/v1/users/products-purchased')\n    .send({ userId: user._id });\nexpect(res).to.have.status(200);\nexpect(res.body.data.products).to.be.an('array');\nexpect(res.body.data.products[0]).to.be.a('object');\nexpect(res.body.data.products[0]._id).to.be.eql(product._id.toString());",
+                  "err": {},
+                  "uuid": "92a7f542-0ed1-4ca9-ba0c-fd5a6303e711",
+                  "parentUUID": "be1d8d71-4024-4127-9b1c-d22cb7e7c796",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should return a 400 error if user id is invalid",
+                  "fullTitle": "Checking Product Reference in User GET /api/v1/users/products-purchased should return a 400 error if user id is invalid",
+                  "timedOut": false,
+                  "duration": 12,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const res = await chai\n    .request(app)\n    .get('/api/v1/users/products-purchased')\n    .send({ userId: 'invalid_id' });\nexpect(res).to.have.status(400);",
+                  "err": {},
+                  "uuid": "3bdc67cf-ab12-4954-9b0a-8c9d70aa2d69",
+                  "parentUUID": "be1d8d71-4024-4127-9b1c-d22cb7e7c796",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "92a7f542-0ed1-4ca9-ba0c-fd5a6303e711",
+                "3bdc67cf-ab12-4954-9b0a-8c9d70aa2d69"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 661,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 60000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "8.2.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.1.0"
+    }
+  }
+}

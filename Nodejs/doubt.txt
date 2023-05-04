@@ -1,2 +1,4 @@
 Doubt Clarification:
 1. get:(value)=> value.toUpperCase()
+2. $round,$addFields,$divide,$subtract 
+

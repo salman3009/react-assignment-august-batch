@@ -1,0 +1,157 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-03-06T11:59:28.910Z",
+    "end": "2023-03-06T11:59:41.418Z",
+    "duration": 12508,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2ddfc56b-1d36-4e3c-ba58-f24fa8da4bbc",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "96cd1ac2-e8b0-4699-9da3-3df3bdf0b25e",
+          "title": "Checking Child Referencing in Student Model",
+          "fullFile": "/media/aditya/Personal Files/Newton/child-referencing-level-1/child-referencing-level-1-student-db/__tests__/test.js",
+          "file": "/__tests__/test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Checking Child Referencing in Student Model\"",
+              "fullTitle": "Checking Child Referencing in Student Model \"before all\" hook in \"Checking Child Referencing in Student Model\"",
+              "timedOut": false,
+              "duration": 11673,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await mongoose.connect(process.env.DATABASE_URL || \"mongodb://localhost:27017/ecommerce\", { useNewUrlParser: true, useUnifiedTopology: true });\nconsole.log('connected to DB');\nawait seedWithDummyData();",
+              "err": {},
+              "uuid": "5025e2a9-fc78-4ce5-a2f2-6544f77d1291",
+              "parentUUID": "96cd1ac2-e8b0-4699-9da3-3df3bdf0b25e",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Checking Child Referencing in Student Model\"",
+              "fullTitle": "Checking Child Referencing in Student Model \"after all\" hook in \"Checking Child Referencing in Student Model\"",
+              "timedOut": false,
+              "duration": 6,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await mongoose.disconnect();\nconsole.log('disconnected DB')",
+              "err": {},
+              "uuid": "3503e0cb-b046-4ec0-b7fd-09399da912e5",
+              "parentUUID": "96cd1ac2-e8b0-4699-9da3-3df3bdf0b25e",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "a8d9abc2-0dac-46b8-8a5e-53ea82e7d960",
+              "title": "GET /api/v1/students/",
+              "fullFile": "/media/aditya/Personal Files/Newton/child-referencing-level-1/child-referencing-level-1-student-db/__tests__/test.js",
+              "file": "/__tests__/test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "students should have a subjects array",
+                  "fullTitle": "Checking Child Referencing in Student Model GET /api/v1/students/ students should have a subjects array",
+                  "timedOut": false,
+                  "duration": 822,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .get('/api/v1/students/')\n    .send({\n    })\n    .end((err, res) => {\n        expect(err).to.be.null;\n        expect(res.body).to.be.a('object');\n        expect(res.body).to.have.property('status').eql('success');\n        expect(res.body.data.students[0]).to.have.property('subjects').to.be.a('array');\n        done();\n    });",
+                  "err": {},
+                  "uuid": "7299c160-d1b8-4b39-a3f9-aa8a7f64588e",
+                  "parentUUID": "a8d9abc2-0dac-46b8-8a5e-53ea82e7d960",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "7299c160-d1b8-4b39-a3f9-aa8a7f64588e"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 822,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 60000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "8.2.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.1.0"
+    }
+  }
+}

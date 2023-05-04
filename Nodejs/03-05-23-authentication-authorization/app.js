@@ -73,6 +73,7 @@ app.post('/api/login',async(req,res)=>{
             }) 
         }
 
+        
 
          return res.status(200).json({
             token:"adfasfasdf@#$$@#"
@@ -102,7 +103,7 @@ const postMiddleware = async (req,res,next)=>{
       next();
 }
 
-app.post('/api/post', async (req,res,next)=>{
+app.post('/api/post', postMiddleware, async (req,res,next)=>{
      
     try{
         const postDetails = new Post({
@@ -137,7 +138,7 @@ app.post('/api/post', async (req,res,next)=>{
 })
 
 
-app.get('/api/post', async (req,res,next)=>{
+app.get('/api/post',postMiddleware, async (req,res,next)=>{
      
     try{
        let result =  await Post.find({},{_id:0,comment:1,postedBy:1});

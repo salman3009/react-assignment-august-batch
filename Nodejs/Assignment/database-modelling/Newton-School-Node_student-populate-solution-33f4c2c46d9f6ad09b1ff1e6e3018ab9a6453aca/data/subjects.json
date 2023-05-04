@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Mathematics",
+        "subjectCode": "MATH101"
+    },
+    {
+        "name": "Computer Science",
+        "subjectCode": "COMP101"
+    },
+    {
+        "name": "Physics",
+        "subjectCode": "PHYS101"
+    },
+    {
+        "name": "Chemistry",
+        "subjectCode": "CHEM101"
+    },
+    {
+        "name": "Biology",
+        "subjectCode": "BIO101"
+    }
+]
