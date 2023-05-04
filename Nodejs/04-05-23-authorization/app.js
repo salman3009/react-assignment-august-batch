@@ -74,7 +74,7 @@ app.post('/api/login',async(req,res)=>{
             }) 
         }
 
-        const token = jwt.sign({emailId:emailResult.email,roles:emailResult.roles},'secret_this_should_be_longer',{expiresIn:"300"});
+        const token = jwt.sign({emailId:emailResult.email,roles:emailResult.roles},'secret_this_should_be_longer',{expiresIn:"1h"});
 
          return res.status(200).json({
             token:token
@@ -100,16 +100,89 @@ app.post('/api/login',async(req,res)=>{
 })
 
 const postMiddleware = async (req,res,next)=>{
-      console.log("inside the post middleware");
-      next();
+    try{
+        const token = req.headers.authorization;
+        const decode = jwt.verify(token,'secret_this_should_be_longer');
+        req.emailId = decode.emailId;
+        req.roles = decode.roles;
+        next();
+    }catch(err){
+        res.status(500).json({
+            message:err,
+        })
+    }  
 }
 
-app.post('/api/post', postMiddleware, async (req,res,next)=>{
+const accessMiddleware=(req,res,next)=>{
+    try{
+        let status = true;
+        console.log(req.roles);
+        if(req.roles.includes('employee')){
+            req.query = {postedBy:req.emailId};
+            status = false;
+         }
+         if(req.roles.includes('admin')){
+            req.query={};
+            status = false;
+         }
+         if(req.roles.includes('superadmin')){
+            req.query={};
+            status = false;
+         }
+         if(status){
+            throw new Error("it is not valid user");
+         }
+         console.log(req.query);
+         next();
+    }
+    catch(err){
+      res.status(500).json({
+        message:"not a valid user"
+      })
+    }
+}
+
+const postingCommentMiddleware =(req,res,next)=>{
+    try{
+
+        if(!req.roles.includes("employee")){
+            throw new Error("only employee can post");
+        }
+        else{
+            next();
+        }
+
+    }catch(err){
+        res.status(500).json({
+            message:"only employee is allowed"
+        })
+    }
+}
+
+
+const adminAccessMiddleware =(req,res,next)=>{
+    try{
+        if(req.roles.includes("admin") || req.roles.includes("admin")){
+            next();      
+        }
+        else{
+            throw new Error("admin error");
+        }
+
+    }catch(err){
+        res.status(500).json({
+            message:"only admin and superadmin is allowed"
+        })
+    }
+}
+
+
+app.post('/api/post', postMiddleware,postingCommentMiddleware, async (req,res,next)=>{
      
     try{
         const postDetails = new Post({
             comment:req.body.comment,
-            postedBy:"akash@gmail.com"
+            postedBy:req.emailId
         })
 
         await postDetails.save();
@@ -139,12 +212,42 @@ app.post('/api/post', postMiddleware, async (req,res,next)=>{
 })
 
 
-app.get('/api/post',postMiddleware, async (req,res,next)=>{
+app.get('/api/post',postMiddleware, accessMiddleware, async (req,res,next)=>{
      
     try{
-       let result =  await Post.find({},{_id:0,comment:1,postedBy:1});
+       let result =  await Post.find(req.query,{_id:0,comment:1,postedBy:1});
         res.status(201).json({
          message:"Data fetched successfully",
+         list:result
+        })
+
+    }catch(err){
+        if(err.errors){
+            let result=[];
+            for(field in err.errors){
+              result.push({propertyName:field,message:err.errors[field].message})
+            }
+            res.status(400).json({
+                message:"validation error occured",
+                list:result
+            })
+        }
+        else{
+            res.status(400).json({
+                message:"invalid error"
+            })
+        }
+     }
+   
+})
+
+
+app.delete('/api/post/:id',postMiddleware, adminAccessMiddleware, async (req,res,next)=>{
+     
+    try{
+       let result =  await Post.findByIdAndDelete(req.params.id);
+        res.status(201).json({
+         message:"Data deleted successfully",
          list:result
         })
 
