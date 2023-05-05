@@ -1,0 +1,43 @@
+[{
+  "_id": {
+    "$oid": "645281acf8d25351aeb40b27"
+  },
+  "email": "suresh@gmail.com",
+  "password": "$2a$10$jMHIzO9t9O92E1tRWH.2Peu0VLe4gGkBgz7gW0zVM8ZHuxBJ4j68K",
+  "roles": [
+    "employee"
+  ],
+  "age": 20,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1683128748495"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1683128748495"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645281c9f8d25351aeb40b29"
+  },
+  "email": "ramesh@gmail.com",
+  "password": "$2a$10$/ovVSEXJGbKAyY3.TRvX9u.l/gGylAg14wu5BMOSxHYuDU3qEYYfy",
+  "roles": [
+    "employee"
+  ],
+  "age": 20,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1683128777319"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1683128777319"
+    }
+  },
+  "__v": 0
+}]
