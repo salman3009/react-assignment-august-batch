@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const {registerValidation,loginValidation} = require('../validators/auth');
 const {generatePassword,comparePassword} = require('../utils/passwordHelper');
+const {generateAuthToken} = require('../utils/authTokenGenHelper');
 
 const register = async (req,res)=>{
    
@@ -56,8 +57,11 @@ try{
       })
    }
    const {_id,name,email:emailId} = user;
+   const auth_token = generateAuthToken(_id,name,emailId);
+   res.header('auth-token',auth_token);
    return res.status(200).json({
       user:{_id,name,emailId},
+      auth_token,
       message:"successfully logged in"
    })
 

@@ -8,5 +8,10 @@ const authRoute = require('./routes/auth');
 
 
 app.use("/api/auth",authRoute);
+app.all("*",(req,res)=>{
+  res.status(404).json({
+    message:"please provide valid route"
+  })
+})
 
 module.exports = app;
