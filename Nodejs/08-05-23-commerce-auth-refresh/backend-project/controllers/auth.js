@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const {registerValidation} = require('../validators/auth');
+const {registerValidation,loginValidation} = require('../validators/auth');
 const {generatePassword,comparePassword} = require('../utils/passwordHelper');
 
 const register = async (req,res)=>{
@@ -34,6 +34,13 @@ const register = async (req,res)=>{
 }
 
 const login = async (req,res)=>{
+   const {error} = loginValidation(req.body);
+   if(error){
+      return res.status(400).json({
+         message:error.details[0].message
+      })
+   }
+
 try{
    const {email,password} = req.body;
    const user = await User.findOne({email});
