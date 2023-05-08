@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const {registerValidation} = require('../validators/auth');
+const {generatePassword} = require('../utils/passwordHelper');
 
 const register = async (req,res)=>{
    
@@ -17,10 +18,11 @@ const register = async (req,res)=>{
         return res.status(400).json({message:"email already exists"});
      }
 
+     const hashed_password = await generatePassword(password);
      const user = new User({
         name,
         email,
-        password
+        password:hashed_password
      })
 
      const result = await user.save();
