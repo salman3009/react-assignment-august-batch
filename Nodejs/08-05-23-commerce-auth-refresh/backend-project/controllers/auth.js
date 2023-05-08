@@ -1,6 +1,6 @@
 const User = require('../models/User');
 const {registerValidation} = require('../validators/auth');
-const {generatePassword} = require('../utils/passwordHelper');
+const {generatePassword,comparePassword} = require('../utils/passwordHelper');
 
 const register = async (req,res)=>{
    
@@ -41,6 +41,12 @@ try{
       return res.status(400).json({
          message:"Email not found"
       });
+   }
+   const isPasswordStatus = await comparePassword(password,user.password);
+   if(!isPasswordStatus){
+      return res.status(400).json({
+         message:"password is incorrect"
+      })
    }
    const {_id,name,email:emailId} = user;
    return res.status(200).json({

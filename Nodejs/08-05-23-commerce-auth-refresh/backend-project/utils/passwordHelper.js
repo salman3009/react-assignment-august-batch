@@ -12,4 +12,13 @@ const generatePassword = async(input)=>{
   }
 }
 
+const comparePassword = async(password,actualPassword)=>{
+  try{
+   return await bcrypt.compare(password,actualPassword);
+  }catch(err){
+    throw(err);
+  }
+}
+
 module.exports.generatePassword = generatePassword;
+module.exports.comparePassword = comparePassword;
