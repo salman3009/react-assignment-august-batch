@@ -1,8 +1,15 @@
 const User = require('../models/User');
-
+const {registerValidation} = require('../validators/auth');
 
 const register = async (req,res)=>{
-  
+   
+   const {error} = registerValidation(req.body);
+   if(error){
+      return res.status(400).json({
+         message:error.details[0].message
+      })
+   }
+
     try{
       const {name,email,password} = req.body;
      const emailExists = await User.findOne({email});
