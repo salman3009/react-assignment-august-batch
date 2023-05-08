@@ -26,11 +26,32 @@ const register = async (req,res)=>{
      })
 
      const result = await user.save();
-     res.status(200).json({user:{result}});
+     res.status(201).json({user:{result}});
 
     }catch(err){
       return res.status(500).json({message:err.message});
     }
 }
 
+const login = async (req,res)=>{
+try{
+   const {email,password} = req.body;
+   const user = await User.findOne({email});
+   if(!user){
+      return res.status(400).json({
+         message:"Email not found"
+      });
+   }
+   const {_id,name,email:emailId} = user;
+   return res.status(200).json({
+      user:{_id,name,emailId},
+      message:"successfully logged in"
+   })
+
+}catch(err){
+   return res.status(500).json({message:err.message});
+}
+}
+
 module.exports.register = register;
+module.exports.login = login;
