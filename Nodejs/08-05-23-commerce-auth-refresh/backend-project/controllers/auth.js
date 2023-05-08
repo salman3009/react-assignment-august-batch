@@ -2,8 +2,9 @@ const User = require('../models/User');
 
 
 const register = async (req,res)=>{
-    const {name,email,password} = req.body;
+  
     try{
+      const {name,email,password} = req.body;
      const emailExists = await User.findOne({email});
      if(emailExists){
         return res.status(400).json({message:"email already exists"});
@@ -15,8 +16,8 @@ const register = async (req,res)=>{
         password
      })
 
-     const {_id,name,email} = await user.save();
-     res.status(200).json({user:{_id,name,email}});
+     const result = await user.save();
+     res.status(200).json({user:{result}});
 
     }catch(err){
       return res.status(500).json({message:err.message});
