@@ -1,8 +1,28 @@
+import { useEffect, useState } from "react"
+import axios from 'axios';
 
 
+export default function Dashboard({history}){
 
-export default function Dashboard(){
+    const [getUser,setUser] = useState(null);
+    useEffect(()=>{
+        profileDetails();
+    },[])
+
+    const profileDetails= async ()=>{
+        try{
+          let result = await axios.get("http://localhost:5001/api/user/profile");
+          console.log(result);
+          setUser(result.data);
+        }catch(err){
+           console.log(err);
+           history.push('/login');
+           
+        }
+     
+    }
+
     return (<div>
-        <h1>dashboard component</h1>
+        {!getUser?<div>Loading....</div>:<div>{getUser.name}</div>}
     </div>)
 }
