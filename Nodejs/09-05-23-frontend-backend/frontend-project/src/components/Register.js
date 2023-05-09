@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default function Register() {
+export default function Register({history}) {
 
     const handleSubmit= async (event)=>{
         try{
@@ -11,6 +11,7 @@ export default function Register() {
 
            let result =  await axios.post('http://localhost:5001/api/auth/register',{name,email,password});
            console.log(result);
+           history.push('/login');
         }catch(e){
             console.log("error",e);
         }   
