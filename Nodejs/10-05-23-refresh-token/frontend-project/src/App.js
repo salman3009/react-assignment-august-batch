@@ -16,11 +16,13 @@ axios.interceptors.request.use(async (request)=>{
     const expDate = new Date(parseInt(exp)*1000);
     const currentDate = new Date();
     console.log(currentDate,expDate);
-    if(currentDate > expDate){
-      alert("trigger api");
-      await refreshTokens();
-    }
-   
+    if(currentDate > expDate && sessionStorage.getItem('status') == 'Y'){
+      sessionStorage.setItem('status',"N");
+       await refreshTokens();
+       request.headers['auth-token'] = sessionStorage.getItem('auth-token');
+       request.headers['refresh-token'] = sessionStorage.getItem('refresh-token');
+       console.log("entered inside the expire");
+    } 
      return request;
 },(error)=>{
   console.log(error);
