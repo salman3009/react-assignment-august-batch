@@ -1,7 +1,9 @@
 const User = require('../models/User');
+const RefreshToken = require('../models/RefreshToken');
 const {registerValidation,loginValidation} = require('../validators/auth');
 const {generatePassword,comparePassword} = require('../utils/passwordHelper');
-const {generateAuthToken} = require('../utils/authTokenGenHelper');
+const {generateAuthToken,generateRefreshToken} = require('../utils/authTokenGenHelper');
+
 
 const register = async (req,res)=>{
    
@@ -58,10 +60,16 @@ try{
    }
    const {_id,name,email:emailId} = user;
    const auth_token = generateAuthToken(_id,name,emailId);
+   const refresh_token = generateRefreshToken(_id,name,emailId);
+   const newRefreshToken = new RefreshToken({
+      refresh_token
+   });
+   await newRefreshToken.save();
    res.header('auth-token',auth_token);
    return res.status(200).json({
       user:{_id,name,emailId},
       auth_token,
+      refresh_token,
       message:"successfully logged in"
    })
 

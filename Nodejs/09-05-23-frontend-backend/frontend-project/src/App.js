@@ -5,6 +5,7 @@ import axios from 'axios';
 
 axios.interceptors.request.use((request)=>{
      console.log("api call is going");
+    request.headers['auth-token'] = sessionStorage.getItem('auth-token');
      return request;
 },(error)=>{
   console.log(error);

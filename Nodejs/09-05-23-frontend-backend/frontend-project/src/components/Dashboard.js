@@ -13,7 +13,7 @@ export default function Dashboard({history}){
         try{
           let result = await axios.get("http://localhost:5001/api/user/profile");
           console.log(result);
-          setUser(result.data);
+          setUser(result.data.user);
         }catch(err){
            console.log(err);
            history.push('/login');
@@ -23,6 +23,9 @@ export default function Dashboard({history}){
     }
 
     return (<div>
-        {!getUser?<div>Loading....</div>:<div>{getUser.name}</div>}
+        {!getUser?<div>Loading....</div>:<div>
+            <h1> {getUser.name}</h1>
+            <button onClick={profileDetails}>Update Data</button>
+            </div>}
     </div>)
 }

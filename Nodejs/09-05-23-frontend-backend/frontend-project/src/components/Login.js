@@ -11,8 +11,10 @@ export default function Login({history}) {
 
            let result =  await axios.post('http://localhost:5001/api/auth/login',{email,password});
            console.log(result);
-            authenticate(result);
-            history.push('/dashboard');
+            authenticate(result,()=>{
+                history.push('/dashboard');
+            });
+           
         }catch(e){
             console.log("error",e);
             history.push('/');
