@@ -27,3 +27,4 @@ const verifyRefreshToken = (req,res,next)=>{
 }
 
 module.exports.verifyAuthToken = verifyAuthToken;
+module.exports.verifyRefreshToken = verifyRefreshToken;

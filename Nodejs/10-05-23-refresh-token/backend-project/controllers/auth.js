@@ -78,5 +78,25 @@ try{
 }
 }
 
+const generateNewauthToken = async(req,res)=>{
+   try{
+      const refreshToken = await RefreshToken.findOne({
+         refresh_token:req.header("refresh-token")
+      });
+      if(!refreshToken){
+         return res.status(400).json({message:"you are logged,Need to login again"});
+      }
+      const {_id,name,email} = req.user;
+      const authToken = generateAuthToken(_id,name,email);
+      return res.status(200).json({
+         message:"new token generated",
+         auth_token:authToken
+      });
+   }catch(err){
+      res.status(400).json({message:err.message});
+   }
+}
+
 module.exports.register = register;
 module.exports.login = login;
+module.exports.generateNewauthToken = generateNewauthToken;
