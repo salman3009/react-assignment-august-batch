@@ -2,9 +2,10 @@ import './App.css';
 import  Routes  from './routes/Routes';
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
+import {refreshTokens} from "./utils/helper";
 
 
-axios.interceptors.request.use((request)=>{
+axios.interceptors.request.use(async (request)=>{
      console.log("api call is going");
      request.headers['auth-token'] = sessionStorage.getItem('auth-token');
      request.headers['refresh-token'] = sessionStorage.getItem('refresh-token');
@@ -17,6 +18,7 @@ axios.interceptors.request.use((request)=>{
     console.log(currentDate,expDate);
     if(currentDate > expDate){
       alert("trigger api");
+      await refreshTokens();
     }
    
      return request;
