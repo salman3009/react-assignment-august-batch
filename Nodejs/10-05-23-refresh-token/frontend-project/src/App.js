@@ -7,6 +7,7 @@ import jwt_decode from "jwt-decode";
 axios.interceptors.request.use((request)=>{
      console.log("api call is going");
      request.headers['auth-token'] = sessionStorage.getItem('auth-token');
+     request.headers['refresh-token'] = sessionStorage.getItem('refresh-token');
      if(!sessionStorage.getItem('auth-token')){
       return request;
      }
