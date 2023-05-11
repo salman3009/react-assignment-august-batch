@@ -28,13 +28,23 @@ app.post('/basic',(req,res,next)=>{
 })
 
 
+const errorLogger =(error,req,res,next)=>{
+    error.logger = "verification is done before sending";
+    next(error);
+ }
+
 const errorHandler =(error,req,res,next)=>{
   const status = error.status || 400;
   const message = error.message || "some backend error";
-  res.status(status).send(message);
+  const logger = error.logger || "some exception";
+  res.status(status).json({
+   message:message,
+   status:logger
+});
 }
 
 
+app.use(errorLogger);
 app.use(errorHandler);
 app.listen(3000,()=>{
     console.log("server is listening");
