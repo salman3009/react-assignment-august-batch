@@ -49,6 +49,7 @@ const createOperation=async ()=>{
 
 
 const findOperation = async ()=>{
+  debugger;
      try{
         // let result = await Employee.find();
         // let result = await Employee.find({status:true,firstName:'amol'});
@@ -61,7 +62,7 @@ const findOperation = async ()=>{
      }
 }
 
-//findOperation();
+findOperation();
 
 const updateOperation= async ()=>{
    try{
