@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const employeeSchema = mongoose.Schema({
      firstName:{
         type:String,
+        unique:true,
         required:[true,'firstName should be required'],
         minlength:[4,'min length is 4'],
         maxlength:[10,'max length is 10']
