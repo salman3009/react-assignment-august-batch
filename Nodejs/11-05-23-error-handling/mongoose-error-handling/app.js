@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const Employee = require('./models/employee');
+const errorController = require('./errorController');
+
+app.use(express.json());
 
 mongoose.connect('mongodb://localhost:27017/errorHandling',{
    useNewUrlParser:true,
@@ -18,7 +21,7 @@ mongoose.connect('mongodb://localhost:27017/errorHandling',{
 app.post('',(req,res,next)=>{
   try{
      const employeeResult = new Employee({
-       firstName:req.body.firstName,
+      firstName:req.body.firstName,
        age:req.body.age,
        hobbies:req.body.hobbies
      });
@@ -32,7 +35,7 @@ app.post('',(req,res,next)=>{
   }
 })
 
-
+app.use(errorController);
 app.listen(3000,()=>{
     console.log("server is listening");
 });
