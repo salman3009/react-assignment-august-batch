@@ -6,15 +6,23 @@ const handleDuplicateKeyError=(err,res)=>{
      return res.status(code).send({message:error,fields:field});
 }
 
+const handleValidationError=(err,res)=>{
+    let errors = Object.values(err.errors).map((result=>result.message));
+    let fields = Object.values(err.errors).map((result=>result.path));
+    let code = 400;
+    res.status(code).send({message:errors,fields:fields});
+}
 
 
 module.exports =(err,req,res,next)=>{
     try{
-        console.log(err);
+        if(err.name && err.name == "ValidationError"){
+            return handleValidationError(err,res);
+        }
         if(err.code && err.code == 11000){
            return handleDuplicateKeyError(err,res);
         }
-        return res.status(400).send("some error happens");
+         throw new Error("some unknow error");
     }catch(err){
         res.status(500).send("An unknow error occurred");
     }
