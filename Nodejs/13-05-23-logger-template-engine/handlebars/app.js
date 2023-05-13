@@ -16,6 +16,26 @@ app.get('/dynamic',(req,res)=>{
         location:"Delhi"
     };
     res.render('dynamic',{personData:personDetails});
+});
+
+app.get('/projects',(req,res)=>{
+    let projects={
+        fullName:"Rahul",
+        skills:[{
+            type:"Data Mining",
+            rate:4
+        },
+        {
+            type:"Block Chain",
+            rate:3
+        },
+        {
+            type:"Nodejs",
+            rate:2
+        }]
+
+    };
+    res.render('projects',{projects:projects})
 })
 
 app.listen(3000,()=>{
