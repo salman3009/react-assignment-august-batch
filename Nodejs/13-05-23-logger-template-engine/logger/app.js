@@ -8,7 +8,7 @@ app.get("/",(req,res,next)=>{
 })
 
 app.get('/info',(req,res,next)=>{
-    try{
+    try{    
         logger.info("successfully enteried the get fetch method");
         throw new Error("not user");
     }catch(err){

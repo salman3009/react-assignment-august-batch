@@ -8,10 +8,6 @@ const logger = createLogger({
     }),prettyPrint()),
     transports:[
         new transports.File({
-            level:"error",
-            filename:"logs/error.log"
-        }),
-        new transports.File({
             level:"info",
             filename:"logs/info.log"
         })
