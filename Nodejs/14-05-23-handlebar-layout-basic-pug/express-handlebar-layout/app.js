@@ -10,15 +10,17 @@ app.engine('hbs',exphbs({
 app.set('view engine','hbs');
 
 app.get('/',(req,res)=>{
-    res.render('home');
+    res.render('home',{msg:"welcome to template engine"});
 })
 
 app.get('/people',(req,res)=>{
-    res.render('people');
+    res.render('people',{list:[
+        {name:"akash"},{name:"amol"}
+    ]});
 })
 
 
 
-app.listen(3000,()=>{
+app.listen(3002,()=>{
     console.log("server is listening on 3000");
 })
