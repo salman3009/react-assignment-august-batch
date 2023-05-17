@@ -3,6 +3,9 @@ Doubt Clarification:
 2.file upload 
 3.js-cookie 
 4.sending-mail for top login verification 
+========================
+5
 
+May
 
-
+There is you teach Lodash
