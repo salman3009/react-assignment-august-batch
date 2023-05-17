@@ -19,7 +19,13 @@ app.post('/upload',(req,res)=>{
     }
 })
 
-
+app.get('/download',(req,res)=>{
+    res.download(__dirname + "/uploads/passportsizephoto.pdf",(err)=>{
+        if(err){
+            res.send("error happened");
+        }
+    })
+})
 
 
 app.get('/',(req,res)=>{
