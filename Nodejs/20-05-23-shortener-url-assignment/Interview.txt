@@ -1,0 +1,6 @@
+How to generate unique key apart from _id?
+//we can use shortid third party package to generate alphumeric values.
+How to store unique data inside the database?
+//we can use unique schema option inside mongoose to allow only unique data.
+How you will store date inside the database?
+//we have type:Date property to store the date inside the database
