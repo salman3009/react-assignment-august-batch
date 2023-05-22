@@ -1,0 +1,2 @@
+1.How you will verify token from jwt 
+we have method called verify().
