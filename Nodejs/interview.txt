@@ -95,3 +95,10 @@ controller - c (business logic is written)
 //$and 
 //$or 
 ///////////////////////////////////////////////////////////////////////////////
+12.How to redirect from express app to some other url 
+redirect method is present inside the one we need paste the update url.
+13.How you can access parameter from url?
+req.params 
+14.How you will verify token from jwt 
+we have method called verify().
+==================================================================
