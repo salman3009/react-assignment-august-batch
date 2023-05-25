@@ -102,3 +102,23 @@ req.params
 14.How you will verify token from jwt 
 we have method called verify().
 ==================================================================
+13.What is sharding in mongodb?
+//proces of storing data in multiple machings.
+//Total capacity will get increased by adding multiple shards.
+//it increase write capacity by splitting write over multiple instances.
+14.How you will protect the API?
+//We can use JWT token to authenticate or authorizate the api.
+15.How JWT flow works?
+frontend username/password --> check in database --> Jwt(userid,roles,expirestime)-->
+frontend(session storage)--->after each api --> interceptor attached token --> send it to backend--
+middleware--verify token 
+16.How will handle error in backend?
+//express custome middleware error handling 
+17.Explain the flow of creating plain api in nodejs 
+//import http package 
+//inside the http  createServer()
+//Inside the createServer() we have request and response object 
+//with response.end() we can send the message to frontend 
+//using createServer() create listen method to connect with some port.
+
+====================================================================================

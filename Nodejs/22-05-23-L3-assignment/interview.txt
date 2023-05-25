@@ -10,3 +10,4 @@ Soft delete will change the status of the document from database.
 findByIdAndDelete() 
 5.For update which method to be used to return updated document.
 findByIdAndUpdate(,{new:true})
+6.Mention any one package third package for string,array manipulations,inbuilt functions.
