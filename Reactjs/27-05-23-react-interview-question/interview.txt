@@ -1,0 +1,89 @@
+1.What is hooks and realtime usage of hooks?
+//if we want to use state in functional component we need the useState hooks.
+//useState
+//useEffect 
+//useContext 
+//useMemo 
+
+2.What is state in react?
+//to rerender the component we need state 
+//reactjs will not rerender until there is a change in state value 
+3.what is props in react?
+//passing value from one function to another function 
+//passing value from parent component to child component 
+
+4.What is DOM?
+//Document object model
+//html/css is static language 
+//javascript is dynamic lanuage 
+//to communicate between html/css to javascript we need some translater or common approach 
+//DOM will help to communicate between html and javascript 
+//html tags will be converted into object and it will form tree like structure 
+//so object can be access easiy in javascript 
+//By using DOM object javascript can able to add,remove,insert and read the html tags.
+
+5.What is virtual DOM?
+//copy of real DOM 
+//To avoid entire rerendering of DOM object 
+//virtual DOM will compare with real DOM only that particular object which is updated will be reflected in real DOM
+//To keep track of changing data they using the mechanism called state.
+
+6.What is component in react?
+//Component is a set of instruction is written to render small portion of ui 
+//component can be made in two ways 
+    1.functional component 
+    2.class component 
+
+7.How to use state in functional and class component 
+//set will consists of two things get,set 
+functional component 
+const[get,set]=useState()
+class component 
+get 
+this.state 
+set 
+this.setState()
+
+8.How you will do api call to backend
+
+we can use default javascript package: fetch 
+we can use third party package: axios 
+Both will return promise 
+Both will return in async way 
+
+Fetch:
+//it is default package 
+//it is supported in all the browsers 
+//we have limited features in this method 
+//we have to manually need to convert json to object and object to json 
+
+axios:
+//we have lot of features available in this method. example interceptor,defaultURL base 
+//No need to convert json to object or object to json because automatically axios will take care 
+//most popular in reactjs market.
+
+9.what is useEffect()?
+//It is lifecyle mechanism
+//Depends upon certain scenario this callback function will get trigger 
+scenario 1:
+//Whenever we are opening the component for firsttime it will get trigger 
+scenario 2:
+//whenever there is state/props changes happen for particular state which is attached to useeffect then callback will triiger 
+scenario 3:
+//whenever will leave the component then callback will trigger.
+scenario 4:
+//any changes happens will trigger the callback function 
+syntax:
+first argument is callback function and second arugment is the condition 
+[],[state],return keyword
+real time example:
+we need inital api load in scenario 1
+========================
+
+
+
+Guidelines:
+//please concentrate more on functional component.
+//props means property or argument.
+
+
