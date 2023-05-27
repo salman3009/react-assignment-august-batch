@@ -1,7 +1,0 @@
-which api it is enteriing
-
-after database operation
-
-before sending data
-
-inside catch block

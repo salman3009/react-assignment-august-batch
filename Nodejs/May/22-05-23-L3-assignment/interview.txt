@@ -1,0 +1,13 @@
+1.How you will verify token from jwt 
+we have method called verify().
+2.Difference between authentication and authorization 
+authentication is nothing but validating the user/email is valid or not
+authorization means which routes/pages he can able to view after authentication.
+3.Difference between soft delete and hard delete?
+Hard delete will remove the document permanently from database 
+Soft delete will change the status of the document from database.
+4.Delete the document by using _id?
+findByIdAndDelete() 
+5.For update which method to be used to return updated document.
+findByIdAndUpdate(,{new:true})
+6.Mention any one package third package for string,array manipulations,inbuilt functions.

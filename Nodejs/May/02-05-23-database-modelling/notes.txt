@@ -1,0 +1,2 @@
+1.file uploading
+2.node mailer - verification of registration.

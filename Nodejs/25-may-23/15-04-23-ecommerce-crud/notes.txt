@@ -1,5 +1,0 @@
-1.Environmental variable
-2.dynami api vs static api 
-3.req.body and req.params and req.query 
-4.How to write get,post,delete method 
-5.how to handle single id data and soft delete of data. 

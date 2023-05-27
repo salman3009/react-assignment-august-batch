@@ -1,0 +1,45 @@
+1.How to generate unique key apart from _id?
+//we can use shortid third party package to generate alphumeric values.
+2.How to store unique data inside the database?
+//we can use unique schema option inside mongoose to allow only unique data.
+3.How you will store date inside the database?
+//we have type:Date property to store the date inside the database
+4.What is MVC pattern?
+model - M  - Data formation
+view - V - html/template engine
+controller - c (business logic is written)
+//To decouple application 
+5.How you will save the data inside the database?
+//save method is available inside the mongoose to save the data inside the database.
+6.What is the return response from mongoose method?
+//return response from mongoose method will be promise.
+7.How you will send the json response to frontend from backend or express?
+//json method is available to send json data to frontend.
+8.How you will handle promise?
+//Using async/await.
+9.How you will filter the data from mongodb
+//using find Method we can able to filter the data
+10.How you will filter only one document inside the database 
+//findOne method.
+11.mongoose query:
+//save()
+//find()
+//findOne()
+//findOneAndUpdate()
+//deleteOne()
+//deleteMany()
+//count()
+//skip()
+//limit()
+//projection()
+//$lt 
+//$gt 
+//$eq 
+//$in 
+//$and 
+//$or 
+12.How to redirect from express app to some other url 
+redirect method is present inside the one we need paste the update url.
+13.How you can access parameter from url?
+req.params 
+

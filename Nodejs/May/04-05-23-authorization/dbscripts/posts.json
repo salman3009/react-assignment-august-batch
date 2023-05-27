@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "645286f8a66a23ff82fd5bd7"
+  },
+  "comment": "welcome to javascript",
+  "postedBy": "akash@gmail.com",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1683130104184"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1683130104184"
+    }
+  },
+  "__v": 0
+}]

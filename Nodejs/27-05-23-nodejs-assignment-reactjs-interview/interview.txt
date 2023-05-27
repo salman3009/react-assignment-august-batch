@@ -1,3 +1,0 @@
-1.How to handle error in nodejs?
-//we can use express middelware error handling mechanism
-//We can attach middleware globally so that it will work in all controller and routes.
