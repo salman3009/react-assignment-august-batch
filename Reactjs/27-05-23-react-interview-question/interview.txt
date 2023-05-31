@@ -79,11 +79,20 @@ first argument is callback function and second arugment is the condition
 real time example:
 we need inital api load in scenario 1
 ========================
-
-
-
 Guidelines:
 //please concentrate more on functional component.
 //props means property or argument.
-
-
+=========================================
+Topics:
+1.How to write functional component 
+2.How to use pass props 
+3.How to use state 
+4.How to lift the state 
+5.map 
+6.CRUD operation 
+7.form validation 
+8.axios 
+9.class component 
+10.hooks 
+11.redux 
+===========================================

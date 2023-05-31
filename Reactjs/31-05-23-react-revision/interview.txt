@@ -1,0 +1,17 @@
+1.How to create react project 
+npx create-react-app project_name
+2.difference between package.json and package-lock.json 
+package.json is main configuration where package is declared in initial phase 
+package-lock.json is detailed configuration file for package which is present in package.json it will represent in component tree form.
+3.Without package.json project will run?
+//No package.json is mandatory to run the project 
+//package-lock.json is optional file 
+4.What gitignore 
+//it will stop the particular set of files while pushing to github or any other repo.
+5.If we dont have node_modules what is command to install it again 
+//npm install 
+6.How many html files will be there in reactjs?
+//only one html files is present in reactjs because of SPA. 
+public/index.html 
+7.How many react application you can run in your system?
+//Multiple application we can run by giving different ports while starting the application.
