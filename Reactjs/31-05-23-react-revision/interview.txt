@@ -15,3 +15,13 @@ package-lock.json is detailed configuration file for package which is present in
 public/index.html 
 7.How many react application you can run in your system?
 //Multiple application we can run by giving different ports while starting the application.
+8.How manys is there to write functional component 
+   //normal function 
+   //arrow function - suggested this one
+9.How to add css class inside the reactjs 
+//we need to use className 
+10.how to import and export 
+export default List 
+import List from '...'
+export List 
+import {List} from '...'

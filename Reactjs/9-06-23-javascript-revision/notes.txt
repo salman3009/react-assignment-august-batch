@@ -1,0 +1,23 @@
+Javascript Engine 
+1.Execution context 
+2.Stack 
+3.heap
+4.callback queue 
+5.web api 
+6.Global execution context 
+7.Scope 
+8.this keyword 
+9.normal function and arrow function 
+10.Event loop 
+============================
+Engine - v8 
+Javascript is interpreter language 
+interpreter - line by line execution
+source code --interpreter -- byte code 
+JIT - Just in time compiler 
+=======================================
+call stack - code will get executed 
+execution context is created for each function that will run inside the call stack.
+heap - array and object will get store.
+javascript is non blocking and it will do multitasking
+=================================================
