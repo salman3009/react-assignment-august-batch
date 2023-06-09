@@ -21,3 +21,20 @@ execution context is created for each function that will run inside the call sta
 heap - array and object will get store.
 javascript is non blocking and it will do multitasking
 =================================================
+Global execution context 
+//outside function whatever is declared 
+//function declarations
+//this keyword refer window object 
+======================================================
+Execution context 
+1.Variable Environment 
+   //let,const,var 
+   //function,object 
+   //arguments 
+2.scope chain 
+    //any variable if you want to access outside this function will have access or not 
+3.this keyword 
+
+All function will have execution context 
+But in arrow function will have execution context but we dont' have own this keyword it will borrow from parent function.
+=================================================================
