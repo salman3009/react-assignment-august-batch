@@ -6,6 +6,6 @@ Asynchronous
 example:
 setTimeout,setInterval,fetch
 custom code:
-callback,promise
+callback,promise - (es6)
 ==========================================
 Both sync and async are in same state which will be excuted first?

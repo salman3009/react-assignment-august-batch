@@ -1,0 +1,33 @@
+<!-- <script>
+    function mainDisplay(callback){
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(json => {
+          callback(json);
+      })
+    }
+
+    function subDisplay(result){
+        console.log("The name is",result);
+    }
+
+    mainDisplay(subDisplay);
+
+</script> -->
+
+<script>
+    let ages =[34,55,11,33];
+
+    function mainDisplay(callback){
+
+        ages.forEach(callback)
+    }
+
+    function subDisplay(input){
+        console.log("age are",input);
+    }
+
+    mainDisplay(subDisplay);
+    //first class citizen
+
+</script>
