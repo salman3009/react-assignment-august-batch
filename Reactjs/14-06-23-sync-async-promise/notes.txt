@@ -7,5 +7,16 @@ example:
 setTimeout,setInterval,fetch
 custom code:
 callback,promise - (es6)
-==========================================
+Promise:
+//It is used to write custom async code 
+//It consists of two state success or failure 
+//We can chain multiple async code together inside promise 
+//Promise can be accessed using then function 
+=================================================================
 Both sync and async are in same state which will be excuted first?
+sync code will be executed first
+==================================================================
+Promise Types:
+1.promise.all
+2.promise.settled
+=================================================================
