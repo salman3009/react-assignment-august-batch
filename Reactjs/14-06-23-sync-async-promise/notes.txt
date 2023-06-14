@@ -25,3 +25,62 @@ Promise Types:
 async await 
 //To handle multiple chaining of promise 
 =================================================
+Features of javascript 
+1.High level 
+  Javascript will take care of memory allocation.
+2.Garbage collected (unused variable)
+  Javascript will take care of garbase collection and making the memory free
+3.Interpreted
+// line by line execution 
+JIT - just in time compiler -(entire code is in machine understanble code)
+//angular/react/vuejs - pre-build bundle will be created and machine executable code is ready.once we give to browser directly it will execute the code.
+4.Multi-paradigm
+   1. procedure language 
+   example:
+   let a = 4;
+   let b = 5;
+   let result = a + b;
+   2.object oriented language 
+      class Expense {
+        constructor(){
+
+        }
+      }
+      prototype based object oriented
+   3.functional programming language 
+        [].find()
+        [].map()
+        [].reduce()
+        [].filter()
+5.Prototype based object-oriented
+    //By using function object will be created
+    //prototype - inheritance
+6.first class function 
+    //you can pass function as parameter or argument to another function 
+    //function is treated as variable is called first class function 
+    example:
+      function display(result){
+        result();
+      }
+      function subddisplay(){
+
+      }
+      display(subddisplay)
+7.Dynamic 
+   let a = 45;
+   a = "list";
+8.Single thread
+9.Non blocking 
+10.Event loop
+=====================================================
+
+
+
+
+
+
+
+
+
+
+
