@@ -19,5 +19,6 @@ sync code will be executed first
 Promise Types:
 1.promise.all
 //calling multiple promise inside this. If one promise is reject then we are not going to get any result.
-2.promise.settled
+2.promise.allSettled
+//calling multiple promise inside this. If one promise is also reject it will give result of all with reject
 =================================================================
