@@ -1,0 +1,30 @@
+<script>
+    let first_promise = new Promise((success,reject)=>{
+        setTimeout(()=>{
+            console.log("line 4");
+         success("first promise is completed");
+        },3000)
+    });
+
+    let second_promise = new Promise((success,reject)=>{
+        setTimeout(()=>{
+            console.log("line 11");
+         reject("second promise is rejected");
+        },3000)
+    });
+
+    let third_promise = new Promise((success,reject)=>{
+        setTimeout(()=>{
+            console.log("line 18");
+         success("third promise is completed");
+        },3000)
+    });
+
+    let result = Promise.all([first_promise,second_promise,third_promise]);
+
+    result.then((input)=>{
+        console.log("success",input);
+    },(error)=>{
+         console.log(error);
+    })
+</script>
