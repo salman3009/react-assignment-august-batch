@@ -1,0 +1,11 @@
+Javascript:
+Synchronous
+1.line by line execution
+Asynchronous
+1.it will executed once it is ready otherwise it will in waiting state.
+example:
+setTimeout,setInterval,fetch
+custom code:
+callback,promise
+==========================================
+Both sync and async are in same state which will be excuted first?
