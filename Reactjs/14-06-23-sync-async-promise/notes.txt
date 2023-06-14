@@ -22,3 +22,6 @@ Promise Types:
 2.promise.allSettled
 //calling multiple promise inside this. If one promise is also reject it will give result of all with reject
 =================================================================
+async await 
+//To handle multiple chaining of promise 
+=================================================
