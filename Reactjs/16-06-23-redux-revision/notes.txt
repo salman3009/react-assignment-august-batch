@@ -1,0 +1,25 @@
+Redux:
+//flux architecture 
+     1.UI will work in unidiectional flow 
+     2.centralized state 
+     3.Following components 
+           1.Action 
+           2.Dispatcher 
+           3.store 
+           4.View 
+Implementation 
+      Redux 
+For complex application we can use the redux 
+================================================
+Redux toolkit 
+1.store  - all our data will be store here
+2.slice  - actions,asycThunk,initial state,updating state
+//multiple slice
+3.dispatcher - take actions from view component to slice to update the state
+4.useselector - current state 
+5.provider - store to entire component
+6.asyncThunk - for async api call - (fullfilled,pending,rejected)
+7.actions - methods-increment/decrement
+=========================================================
+https://redux-toolkit.js.org/tutorials/quick-start
+========================================================
