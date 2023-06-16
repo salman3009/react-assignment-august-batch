@@ -18,7 +18,7 @@ Redux toolkit
 3.dispatcher - take actions from view component to slice to update the state
 4.useselector - current state 
 5.provider - store to entire component
-6.asyncThunk - for async api call - (fullfilled,pending,rejected)
+6.asyncThunk - for async api call - (fullfilled,pending,rejected) - > extraReducers
 7.actions - methods-increment/decrement
 =========================================================
 https://redux-toolkit.js.org/tutorials/quick-start

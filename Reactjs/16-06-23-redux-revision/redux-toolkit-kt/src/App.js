@@ -1,16 +1,23 @@
 import './App.css';
 import { useSelector,useDispatch } from 'react-redux';
 import { increment ,incrementByAmount} from './counterSlice'
-import { register} from './loginSlice'
+import { register,fetchDetails} from './loginSlice'
+import { useEffect } from 'react';
 
 
 
 
 function App() {
 
+
+  useEffect(()=>{
+   dispatch(fetchDetails());
+  },[])
+
   const dispatch = useDispatch();
   const {value} = useSelector((state) => state.counter)
   const {email} = useSelector((state) => state.login)
+  const {status} = useSelector((state) => state.login)
 
   const onChangeHandler=(event)=>{
     dispatch(register({email:event.target.value}))
@@ -19,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <h1>
-        {value}
+        {status}
       </h1>
       <h2>
         {email}
