@@ -29,8 +29,16 @@ Question:
 
 2.useState 
    //the component will get re-render whenever changes in state happens.
-3.useContext 
-4.useReducer 
+
+3.useReducer 
+   //Similar to useState 
+   //Will have multiple actions to update the state 
+Question:
+     1.What is the difference between useState and useReducer 
+     //Both are same only difference is will have multiple action before state update in useReducer but in useState directly state updates is there.
+
+4.useContext 
+     
 5.useMemo 
 6.useCallback
 7.useRef 
