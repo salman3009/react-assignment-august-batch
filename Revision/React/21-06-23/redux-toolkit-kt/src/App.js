@@ -1,6 +1,6 @@
 import './App.css';
 import { useSelector,useDispatch } from 'react-redux';
-import { increment ,incrementByAmount} from './counterSlice'
+import { increment ,incrementByAmount,displayDetails} from './counterSlice'
 import { register,fetchDetails} from './loginSlice'
 import { useEffect } from 'react';
 
@@ -12,12 +12,21 @@ function App() {
 
   useEffect(()=>{
    dispatch(fetchDetails());
+   dispatch(displayDetails());
   },[])
+
+  
 
   const dispatch = useDispatch();
   const {value} = useSelector((state) => state.counter)
   const {email} = useSelector((state) => state.login)
   const {status} = useSelector((state) => state.login)
+
+  if(status === 'pending'){
+    return (<div>
+      <h1>It is in loading</h1>
+    </div>)
+  }
 
   const onChangeHandler=(event)=>{
     dispatch(register({email:event.target.value}))
