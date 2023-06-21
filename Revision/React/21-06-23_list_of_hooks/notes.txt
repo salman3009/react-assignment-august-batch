@@ -40,9 +40,15 @@ Question:
 4.useContext 
      //To avoid drilling of props 
      //provider and consumer
-     
+
 5.useMemo 
+    //To avoid unwanted rendering of business logic for the component when state changes happens 
+    //So complex business logic can be taken from cache if renders happen again.
+    //Concept of memoization.
+
 6.useCallback
+    //Entire Memo we need to do memoization:
+    
 7.useRef 
 8.custom Hooks
 
