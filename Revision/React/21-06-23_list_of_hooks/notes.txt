@@ -38,6 +38,8 @@ Question:
      //Both are same only difference is will have multiple action before state update in useReducer but in useState directly state updates is there.
 
 4.useContext 
+     //To avoid drilling of props 
+     //provider and consumer
      
 5.useMemo 
 6.useCallback
