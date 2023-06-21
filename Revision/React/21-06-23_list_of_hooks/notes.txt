@@ -1,0 +1,50 @@
+redux toolkit
+store 
+slice 
+useSelector
+useDispatch
+Action 
+provider 
+component---dispatch--action-slice-store.js---provider-component
+   |------------------------------------------------|
+====================================================================
+redux toolkit - async api call
+1.How will handle api call in redux toolkit 
+2.what is async tunk 
+3.How will handle api error,success,pending response 
+4.How you will do error handling in api call 
+Implementation:
+1createAsyncThunk 
+2.extraReducer -- pending,fulfilled,rejected 
+===========================================
+Hooks:
+1.useEffect 
+   1.Data will be loaded whenever html+css part is ready for one time 
+   2.Every state update we need to call the function 
+   3.When we leave the current component 
+Question:
+1.What is the use of UseEffect ?
+2.What are the condition is available for UseEffect?
+3.How you will remove the data like caching before leaving the component?
+
+2.useState 
+   //the component will get re-render whenever changes in state happens.
+3.useContext 
+4.useReducer 
+5.useMemo 
+6.useCallback
+7.useRef 
+8.custom Hooks
+
+1.What are hooks present in react 
+2.How you will improve the performance
+ 1.useContext 
+ 2.useMemo
+ 3.useCallback 
+ 4.useRef 
+ 5.custom hooks
+3.Hooks are written in sync way or async way 
+//All hooks are written in async way.
+===========================================
+
+
