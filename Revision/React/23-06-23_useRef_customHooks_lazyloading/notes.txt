@@ -18,5 +18,9 @@ useEffect(()=>{ return()=>{}},[])-->componentWillUnmount
 6.how to call api and how to use map function inside the class component.
 ===========================================================================
 component Composition:
-passing component as props to other components thus creating new components with others component.
+passing component as props to other components.
 ========================================================
+HOC - Higher order component: 
+//It is method of reusing the component functionality logic 
+//It simply take original component and return enhanced comopnent.
+=================================================================
