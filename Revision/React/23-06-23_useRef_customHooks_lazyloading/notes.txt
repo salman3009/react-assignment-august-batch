@@ -1,2 +1,19 @@
 useRef:
 //To access DOM directly with the helps hooks
+CustomHooks
+//We can able to create our own custom hooks for resuble function.
+========================================================
+class component:
+//Before react 16.8 we don't have hooks 
+//So we need to use class component for older version to maintain state 
+//this is mandatory to access props,state,methods
+1.How to create custom component
+2.How to pass props from one to another component
+3.How to update the data and store in state 
+4.Difference between normal method and arrow method in class component 
+5.lifecylehooks difference between useEffect and class component life cycle 
+useEffect(()=>{},[]) --> componentDidMount()
+useEffect(()=>{},[getState])-->compoentDidUpdate()
+useEffect(()=>{ return()=>{}},[])-->componentWillUnmount
+6.how to call api and how to use map function inside the class component.
+===========================================================================
